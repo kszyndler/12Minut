@@ -24,8 +24,8 @@ vec3 CCollisionDetection::GetPositionAfterWorldCollisions(vec3 pos0, vec3 pos1, 
 		// od w³asnych potrzeb.
 
 		// Rzutujemy nasz wskaŸnik na "jakiœ" obiekt na wskaŸnik na CWall.
-		Colliding * wall = dynamic_cast<Colliding *>(objects->at(i));
-		//CWall* collidingObj = dynamic_cast<CWall*>(objects->at(i));
+		Colliding * collidingObj = dynamic_cast<Colliding *>(objects->at(i));
+		//CWall* wall = dynamic_cast<CWall*>(objects->at(i));
 
 		// Jeœli u¿yliœmy reinterpret_cast zamiast zwyk³ego static_cast (lub
 		// równowa¿nego zapisu (CWall*)(objects->at(i)), to w momencie gdy rzutowanie
@@ -34,14 +34,14 @@ vec3 CCollisionDetection::GetPositionAfterWorldCollisions(vec3 pos0, vec3 pos1, 
 		// Pomijamy te¿ obiekt jeœli jest to ten sam, co obiekt do którego adres zosta³
 		// przekazany w parametrze - zostanie to u¿yte do rozwi¹zania sytuacji gdy odbicie siê
 		// od jednego obiektu skutkuje odbiciem siê od drugiego.
-		if (wall == NULL || wall->collisionPolygon == exclude) {
+		if (collidingObj == NULL || collidingObj->collisionPolygon == exclude) {
 			continue;
 		}
 
 		// Wywo³ujemy sprawdzanie kolizji elipsoidy gracza z polygonem danej "œciany", na odcinku pos0 => pos1.
 		// Wyniki bêd¹ zapisane w "collision", pod warunkiem ¿e wczeœniej nie znajdowa³a siê tam
 		// bli¿sza kolizja.
-		wall->collisionPolygon->CheckCollision(pos0, pos1, player.collisionEllipsoid, collision);
+		collidingObj->collisionPolygon->CheckCollision(pos0, pos1, player.collisionEllipsoid, collision);
 	}
 
 	// Jeœli uda³o siê wykryæ jak¹kolwiek kolizjê (wtedy collision zawiera informacje o tej wystêpuj¹cej najbli¿ej)...

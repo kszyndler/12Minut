@@ -3,13 +3,21 @@
 #include "ObjLoader.h"
 
 
-Item::Item(float px, float py, float pz, float rx, float ry, float rz, string filename):Colliding(px, py, pz)
+Item::Item(float px, float py, float pz, float rx, float ry, float rz, string filename):Colliding(1)
 {
 	Position.Set(px, py, pz);
 	Rotation.Set(rx, ry, rz);
-	Name = filename; 
+	Name = filename;
 
+	vec3 collisionPoints[4];
+	collisionPoints[0].Set(px, py, pz);
+	collisionPoints[1].Set(px, 2.0, pz);
+	collisionPoints[2].Set(2.0, py, pz);
+	collisionPoints[3].Set(2.0, 2.0, pz);//tu trzeba zmienic, zeby sie ladnie samo liczylo! 
+
+	createCollision(collisionPoints);
 	collisionPolygon->parent = this;
+
 }
 
 

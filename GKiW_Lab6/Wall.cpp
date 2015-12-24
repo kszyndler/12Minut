@@ -13,16 +13,15 @@ CWall::CWall(vec3 a, vec3 b, vec3 c, vec3 d) : CSceneObject()
 	v[1] = b;
 	v[2] = c;
 	v[3] = d;
-	collisionPolygon = new CCollisionPolygon(v, 4); // Stworzenie polygonu, który bêdzie wykorzystywany do wykrywania kolizji.
+	createCollision(v);
 	collisionPolygon->parent = this; // Niech polygon pamiêta, do kogo przynale¿y.
+
 	vec3::Cross((c-b), (a-b), n); // Obliczenie wektora normalnego œciany...
 	n.Normalize(); // ...i jego normalizacja.
 }
 
-// Destruktor - sprz¹tamy po sobie.
 CWall::~CWall(void)
 {
-	delete collisionPolygon;
 }
 
 // Inicjalizacja segmentu œciany.

@@ -1,13 +1,31 @@
 #pragma once
 #include "Vec3.h"
 
+struct Shape
+{
+	vector<vec3> peaks; //xmin, zmin, xmax ,zmax lub dla 1 sciany wierzcholki
+	int numberOfWalls;
+	float height; 
+};
+
 class Colliding
 {
 public:
 	CCollisionPolygon * collisionPolygon; // Polygon (a tak naprawdê po prostu czworok¹t), z którym bêd¹ wykrywane kolizje.
+	vector <CCollisionPolygon*> collisionPolygons;
+
 	Colliding(int);
-	Colliding();
 	~Colliding();
-	void createCollision(vec3 [4]);
-	int numberOfWalls;
+
+	void createCollisions(CSceneObject* parent);
+	void checkCollisions(vec3 pos0, vec3 pos1, CCollisionEllipsoid * e, SCollision &result);
+	void chooseCollisionShape(vector<vec3> newPeaks, float newHeight);
+	void Render();
+	
+
+protected:
+	Shape collisionShape; 
+	void createWall(vec3 peakA, vec3 peakB, vec3 wall[4]);
+	void createCollision(vec3 peaks[4], CSceneObject* parent);
 };
+

@@ -6,19 +6,22 @@ CTexture * CWall::_wallTexture = NULL;
 
 // Konstruktor - wywo³ujemy konstruktor CSceneObject oraz ustawiamy wartoœci pocz¹tkowe
 // na podstawie zadanych wspó³rzêdnych.
-CWall::CWall(vec3 a, vec3 b, vec3 c, vec3 d) : CSceneObject()
+CWall::CWall(vec3 a, vec3 b, vec3 c, vec3 d) : CSceneObject(), Colliding(1)
  {
 	_displayListId = -1; // Na razie displaylisty jeszcze nie ma, utworzymy j¹ podczas inicjalizacji.
+	v.resize(4);
 	v[0] = a;
 	v[1] = b;
 	v[2] = c;
 	v[3] = d;
-	createCollision(v);
-	collisionPolygon->parent = this; // Niech polygon pamiêta, do kogo przynale¿y.
+
+	chooseCollisionShape(v, 0);
+	createCollisions(this);
 
 	vec3::Cross((c-b), (a-b), n); // Obliczenie wektora normalnego œciany...
 	n.Normalize(); // ...i jego normalizacja.
 }
+
 
 CWall::~CWall(void)
 {

@@ -41,7 +41,9 @@ vec3 CCollisionDetection::GetPositionAfterWorldCollisions(vec3 pos0, vec3 pos1, 
 		// Wywo³ujemy sprawdzanie kolizji elipsoidy gracza z polygonem danej "œciany", na odcinku pos0 => pos1.
 		// Wyniki bêd¹ zapisane w "collision", pod warunkiem ¿e wczeœniej nie znajdowa³a siê tam
 		// bli¿sza kolizja.
-		collidingObj->collisionPolygon->CheckCollision(pos0, pos1, player.collisionEllipsoid, collision);
+		
+		collidingObj->checkCollisions(pos0, pos1, player.collisionEllipsoid, collision);
+		//collidingObj->collisionPolygon->CheckCollision(pos0, pos1, player.collisionEllipsoid, collision);
 	}
 
 	// Jeœli uda³o siê wykryæ jak¹kolwiek kolizjê (wtedy collision zawiera informacje o tej wystêpuj¹cej najbli¿ej)...

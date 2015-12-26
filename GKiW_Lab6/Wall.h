@@ -1,5 +1,6 @@
 #pragma once
 #include "Colliding.h"
+#include <vector>
 
 // Œciana. Jedyny element sceny w przyk³adzie, z którym wykrywane bêd¹ kolizje.
 // Jest to dowolny quad którego wszystkie wierzcho³ki le¿¹ na jednej p³aszczyŸnie (wa¿ne!).
@@ -13,7 +14,7 @@ public:
 	void Initialize(void); // Inicjalizacja (wywo³ana raz).
 	void Update(void); // Aktualizacja stanu.
 	void Render(void); // Rysowanie œciany.
-	vec3 v[4]; // Pozycje wierzcho³ków. 
+	vector<vec3> v; // Pozycje wierzcho³ków. 
 	vec3 n; // Wektor normalny œciany.
 
 protected:

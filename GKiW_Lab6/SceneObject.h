@@ -10,6 +10,7 @@ class CSceneObject
 public:
 	vec3 Position; // Pozycja obiektu na scenie.
 	vec3 Rotation; // Rotacja (trzy k¹ty) obiektu na scenie.
+	float Scale; // skalowanie obiektu
 	string Name; // Nazwa obiektu u³atwiaj¹ca ich rozpoznawanie (g³ównie programiœcie).
 
 	CSceneObject(void); // Konstruktor.

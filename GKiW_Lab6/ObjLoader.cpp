@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "ObjLoader.h"
 #include "Vec3.h"
+#include <tuple>
 
 using namespace std;
 
-GLuint LoadObj(string file) {
+std::tuple< int, vector<vec3> > LoadObj(string file) {
 
 	FILE * fp;
 	errno_t error;
@@ -13,7 +14,7 @@ GLuint LoadObj(string file) {
 
 	if (error != 0) {
 		printf("ERROR: Cannot read model file \"%s\".\n", file);
-		return -1;
+		throw EXCEPTION_READ_FAULT;
 	}
 
 	std::vector<vec3> * v = new std::vector<vec3>();
@@ -21,8 +22,10 @@ GLuint LoadObj(string file) {
 	std::vector<vec3> * t = new std::vector<vec3>();
 	std::vector<SFace> * f = new std::vector<SFace>();
 
-	char buf[128];
+	std::vector<vec3> extremePeaks; 
 
+	char buf[128];
+	
 	while (fgets(buf, 128, fp) != NULL) {
 		if (buf[0] == 'v' && buf[1] == ' ') {
 			vec3 * vertex = new vec3();
@@ -52,9 +55,43 @@ GLuint LoadObj(string file) {
 
 	fclose(fp);
 
+	//szukanie punktow max i min do kolizji 
+	vec3 xmin = (*v)[0];
+	vec3 xmax = xmin; 
+	vec3 ymin = (*v)[0];
+	vec3 ymax = ymin;
+	vec3 zmin = (*v)[0];
+	vec3 zmax = zmin; 
+
+	for (int i = 1; i < v->size(); i++)
+	{
+		vec3 nextPoint = (*v)[i]; 
+		if (nextPoint.x < xmin.x)
+			xmin = nextPoint;
+		else if (nextPoint.x > xmax.x)
+			xmax = nextPoint;
+		if (nextPoint.y < zmin.y)
+			ymin = nextPoint;
+		else if (nextPoint.y > zmax.y)
+			ymax = nextPoint;
+		if (nextPoint.z < zmin.z)
+			zmin = nextPoint;
+		else if (nextPoint.z > zmax.z)
+			zmax = nextPoint;
+	}
+
+	extremePeaks.push_back(xmin);
+	extremePeaks.push_back(zmin);
+	extremePeaks.push_back(xmax);
+	extremePeaks.push_back(zmax);
+	extremePeaks.push_back(ymin);
+	extremePeaks.push_back(ymax);
+
 	GLuint dlId;
-	dlId = glGenLists(1);
+	dlId = glGenLists(1);//generuje 1 pusta liste 
 	glNewList(dlId, GL_COMPILE);
+
+
 	glBegin(GL_TRIANGLES);
 	for (int i = 0; i < f->size(); ++i) {
 		for (int j = 0; j < 3; ++j) {
@@ -74,6 +111,5 @@ GLuint LoadObj(string file) {
 	delete t;
 	delete f;
 
-	return dlId;
-
+	return std::make_tuple(dlId, extremePeaks);
 }

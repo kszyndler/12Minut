@@ -9,7 +9,7 @@ struct SFace {
 	int t[3];
 };
 
-GLuint LoadObj(string file);
+std::tuple< int, vector<vec3> > LoadObj(string file);
 
 // Wywo³anie tak utworzonej display listy w celu jej narysowania:
 // glCallList(id_zwrocone_przez_LoadObj);

@@ -58,14 +58,17 @@ void CScene::Initialize(void) {
 		Terrain = new CTerrain();
 		Terrain->Initialize();
 
-		Item* boy = new Item(0.0f, 0.0f, 0.3f, -90, 0, 0, "boy.obj");
+		Item* boy = new Item(0.0f, 0.0f, 0.3f, 0, 0, 0, 0.2, "boy2.obj");
+		Item* sofa = new Item(3.0f, 0.0f, 0.3f, 0, 0, 0, 0.01, "martin.obj");
 
 		// Dodanie wszystkich obiektów sceny do wektora, po którym póŸniej bêdziemy iterowaæ chc¹c je rysowaæ.
 		// Dlatego w³aœnie wygodnie jest, gdy wszystkie obiekty sceny dziedzicz¹ po jednej, wspólnej klasie bazowej (CSceneObject).
 
 		Objects = new vector<CSceneObject *>();
 		boy->Initialize();
+		sofa->Initialize();
 		Objects->push_back(boy);
+		Objects->push_back(sofa);
 
 
 		// Definicje po³o¿enia naszych œcian. Ka¿da kolejna czwórka wektorów to jeden quad.

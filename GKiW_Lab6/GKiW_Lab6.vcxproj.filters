@@ -87,9 +87,6 @@
     <ClInclude Include="12minutes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Colliding.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>Header Files\World</Filter>
     </ClInclude>
@@ -97,6 +94,15 @@
       <Filter>Header Files\World</Filter>
     </ClInclude>
     <ClInclude Include="CollidingItem.h">
+      <Filter>Header Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Collectable.h">
+      <Filter>Header Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Colliding.h">
+      <Filter>Header Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="CollectingManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -137,9 +143,6 @@
     <ClCompile Include="ObjLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Colliding.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>Source Files\World</Filter>
     </ClCompile>
@@ -147,6 +150,15 @@
       <Filter>Source Files\World</Filter>
     </ClCompile>
     <ClCompile Include="CollidingItem.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Collectable.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Colliding.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectingManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

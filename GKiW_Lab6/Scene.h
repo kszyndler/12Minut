@@ -1,8 +1,14 @@
 #pragma once
+#include "CollectingManager.h"
 
+//mediator
 // Scena - Jest to podstawowy element organizuj¹cy hierarchiê obiektów w grze.
 // Z za³o¿enia, w danym momencie powinna istnieæ tylko jedna scena.
 // W sytuacji gdy scen mo¿e byæ wiêcej, dobrze jest utworzyæ klasy dziedzicz¹ce po tej.
+
+int findInVector(Item* value, vector<CSceneObject*>* vector);
+
+
 class CScene
 {
 public:
@@ -10,6 +16,7 @@ public:
 	CSkydome * Skydome; // Skydome - niebo.
 	CTerrain * Terrain; // Teren - czyli w naszym przyk³adzie trawiasty quad.
 	CPlayer Player; // Stan gracza.
+	CollectingManager* collectingManager;
 
 	// Wszystkie obiekty na scenie, wektor na podstawie którego bêdzie mo¿na
 	// po nich ³atwo iterowaæ, np. w celu ich narysowania.
@@ -20,6 +27,9 @@ public:
 	void Initialize(void); // Inicjalizacja (wywo³ywana raz).
 	void Update(void); // Aktualizacja œwiata.
 	void Render(void); // Rysowanie ca³ej sceny.
+	void deleteObject(Item* object);
+
+	bool CallCollectingManager();
 	
 	bool DrawCollisions; // Czy maj¹ byæ rysowane kolizje (do debugowania, klawisz "K")?
 	bool DrawNormals; // Czy maj¹ byæ rysowane wektory normalne (do debugowania, klawisz "N")?

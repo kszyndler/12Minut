@@ -59,7 +59,6 @@ int main(int argc, char* argv[])
 	Scene = new CScene();
 	Scene->Initialize();
 
-
 	glutMainLoop();
 
 	return 0;
@@ -74,10 +73,25 @@ int main(int argc, char* argv[])
 		}
 	}
 
+	void endGame(int someInt)
+	{
+		glutLeaveMainLoop();
+	}
+
 	void OnKeyDown(unsigned char key, int x, int y) {
 		if (key == 27) {
 			glutLeaveMainLoop();
 		}
+
+		if (key == 32) {
+			bool isDone = Scene->CallCollectingManager();
+			if (isDone)
+			{
+				glutTimerFunc(1000, endGame, 0);
+			}
+
+		}
+
 		if (key == 'm' || key == 'M') {
 			if (captureMouse) {
 				captureMouse = false;

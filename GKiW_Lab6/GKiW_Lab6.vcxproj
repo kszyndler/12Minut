@@ -87,6 +87,8 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\3rd_party\bitmap\Bitmap.h" />
+    <ClInclude Include="Collectable.h" />
+    <ClInclude Include="CollectingManager.h" />
     <ClInclude Include="Colliding.h" />
     <ClInclude Include="CollidingItem.h" />
     <ClInclude Include="Collision.h" />
@@ -111,6 +113,8 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\3rd_party\bitmap\Bitmap.cpp" />
+    <ClCompile Include="Collectable.cpp" />
+    <ClCompile Include="CollectingManager.cpp" />
     <ClCompile Include="Colliding.cpp" />
     <ClCompile Include="CollidingItem.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />

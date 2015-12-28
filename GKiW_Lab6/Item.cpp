@@ -12,7 +12,7 @@ void swapVectors(vec3 a, vec3 b)
 	b = tmp; 
 }
 
-Item::Item(float px, float py, float pz, float rx, float ry, float rz, float scale, string filename)//:Colliding(4)
+Item::Item(float px, float py, float pz, float rx, float ry, float rz, float scale, string filename)
 {
 	Position.Set(px, py, pz);
 	Rotation.Set(rx, ry, rz);
@@ -50,9 +50,6 @@ void Item::Initialize()
 		extremePeaks[i].z *= Scale;
 		extremePeaks[i].z += Position.z;
 	}
-
-	//collide(extremePeaks, extremePeaks[5].y, this);
-
 }
 
 void Item::Update()

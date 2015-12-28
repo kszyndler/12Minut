@@ -2,6 +2,17 @@
 #include "Item.h"
 #include "ItemsOnScene.h"
 
+int findInVector(Item* value, vector<CSceneObject*>* vector)
+{
+	for (int i = 0; i < vector->size(); i++)
+	{
+		if ((*vector)[i] == value)
+			return i;
+	}
+
+	return -1;
+}
+
 // Konstruktor.
 CScene::CScene(void)
 {
@@ -19,6 +30,7 @@ CScene::~CScene(void)
 	if (Terrain != NULL) {
 		delete Terrain;
 	}
+	delete collectingManager;
 }
 
 // Inicjalizacja sceny.
@@ -59,7 +71,7 @@ void CScene::Initialize(void) {
 		Terrain = new CTerrain();
 		Terrain->Initialize();
 
-		Item* boy = new Item(0.0f, 0.0f, 0.3f, 0, 0, 0, 0.2, "boy2.obj");
+		Item* boy = new Boy(0.0f, 0.0f, 0.3f, 0, 0, 0, 0.2, "boy2.obj");
 		Sofa* sofa = new Sofa(3.0f, 0.0f, 0.3f, 0, 0, 0, 0.01, "martin.obj");
 		Item* bookcase = new Item(0.0f, 0.0f, -2.0f, 0, 0, 0, 0.02, "case.obj");
 
@@ -101,10 +113,10 @@ void CScene::Initialize(void) {
 		};
 
 		// Tyle mamy œcian.
-		int N = 21;
+		int NumberOfWalls = 21;
 
 		// Zamieniamy powy¿sz¹ tablicê na obiekty typu CWall, które dodamy do listy obiektów na scenie.
-		for (int i = 0; i < N; ++i) {
+		for (int i = 0; i < NumberOfWalls; ++i) {
 			CWall *w = new CWall(walls[i][0], walls[i][1], walls[i][2], walls[i][3]);
 			w->Name = "Wall" + to_string(i); // Nadanie nazwy, aby np. mo¿na by³o póŸniej ³atwo dowiedzieæ siê z czym mamy kolizjê.
 			w->Initialize();
@@ -112,6 +124,17 @@ void CScene::Initialize(void) {
 		}
 
 	#pragma endregion
+
+
+#pragma region Zbieranie przedmiotow
+		queue <Item*>* ItemsToCollect = new queue<Item*>; 
+		ItemsToCollect->push(sofa);
+		ItemsToCollect->push(bookcase);
+		ItemsToCollect->push(boy);
+
+		collectingManager = new CollectingManager(ItemsToCollect);
+
+#pragma endregion
 	
 }
 
@@ -150,6 +173,7 @@ void CScene::Update(void) {
 		if (keystate['c']) {
 			Player.velRX = Player.speed;
 		}
+
 
 		float T = acos(Player.dir.y);
 		float G = atan2(Player.dir.z, Player.dir.x);
@@ -289,4 +313,24 @@ void CScene::Render(void) {
 		}
 	#pragma endregion
 
+}
+
+void CScene::deleteObject(Item * obj)
+{
+	int objectId = findInVector(obj, Objects);
+	Objects->erase(Objects->begin() + objectId);
+
+}
+
+bool CScene::CallCollectingManager()
+{
+	Item* returnedItem = collectingManager->tryToCollect(Player);
+	if (returnedItem != nullptr)
+		deleteObject(returnedItem);
+
+	if (collectingManager->isDoneJob())
+	{
+		return true; //zakoncz gre
+	}
+	return false; 
 }

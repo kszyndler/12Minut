@@ -15,8 +15,7 @@ CWall::CWall(vec3 a, vec3 b, vec3 c, vec3 d) : CSceneObject(), Colliding(1)
 	v[2] = c;
 	v[3] = d;
 
-	chooseCollisionShape(v, 0);
-	createCollisions(this);
+	collide(v, 0, this);
 
 	vec3::Cross((c-b), (a-b), n); // Obliczenie wektora normalnego œciany...
 	n.Normalize(); // ...i jego normalizacja.

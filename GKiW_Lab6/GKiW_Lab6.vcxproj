@@ -88,12 +88,14 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
   <ItemGroup>
     <ClInclude Include="..\3rd_party\bitmap\Bitmap.h" />
     <ClInclude Include="Colliding.h" />
+    <ClInclude Include="CollidingItem.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionDetection.h" />
     <ClInclude Include="CollisionEllipsoid.h" />
     <ClInclude Include="CollisionPlane.h" />
     <ClInclude Include="CollisionPolygon.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemsOnScene.h" />
     <ClInclude Include="ObjLoader.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="12minutes.h" />
@@ -110,10 +112,12 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
   <ItemGroup>
     <ClCompile Include="..\3rd_party\bitmap\Bitmap.cpp" />
     <ClCompile Include="Colliding.cpp" />
+    <ClCompile Include="CollidingItem.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
     <ClCompile Include="CollisionPolygon.cpp" />
     <ClCompile Include="12minutes.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemsOnScene.cpp" />
     <ClCompile Include="ObjLoader.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneObject.cpp" />

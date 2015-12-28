@@ -24,6 +24,14 @@ void Colliding::createCollision(vec3 collisionPoints[4], CSceneObject* polygonPa
 	collisionPolygons.push_back(polygon);
 }
 
+
+void Colliding::collide(vector <vec3> collisionPeaks, float height, CSceneObject* parent)
+{
+	chooseCollisionShape(collisionPeaks, height);
+	createCollisions(parent);
+}
+
+
 void Colliding::createCollisions(CSceneObject * parent)
 {
 	vec3 wallPeaks[4];
@@ -57,7 +65,12 @@ void Colliding::checkCollisions(vec3 pos0, vec3 pos1, CCollisionEllipsoid * e, S
 
 void Colliding::chooseCollisionShape(vector<vec3> newPeaks, float newHeight)
 {
-	collisionShape.peaks = newPeaks; 
+	for (int i = 0; i < 4; i++)
+	{
+		collisionShape.peaks[i] = newPeaks[i];
+	}
+
+	//collisionShape.peaks = newPeaks; 
 	collisionShape.height = newHeight; 
 }
 

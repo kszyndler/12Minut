@@ -3,7 +3,7 @@
 
 struct Shape
 {
-	vector<vec3> peaks; //xmin, zmin, xmax ,zmax lub dla 1 sciany wierzcholki
+	vec3 peaks[4]; //xmin, zmin, xmax ,zmax lub dla 1 sciany wierzcholki
 	int numberOfWalls;
 	float height; 
 };
@@ -27,5 +27,6 @@ protected:
 	Shape collisionShape; 
 	void createWall(vec3 peakA, vec3 peakB, vec3 wall[4]);
 	void createCollision(vec3 peaks[4], CSceneObject* parent);
+	void collide(vector <vec3> peaks, float height, CSceneObject* parent);
 };
 

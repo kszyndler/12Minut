@@ -10,6 +10,7 @@ public:
 	~CollectingManager();
 	Item* tryToCollect(CPlayer& playerState);
 	bool isDoneJob();
+	Item* getHead();
 
 private:
 	queue <Item*>* ItemsToCollect;

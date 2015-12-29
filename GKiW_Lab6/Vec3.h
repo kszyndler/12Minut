@@ -52,6 +52,10 @@ struct vec3 {
 		return vec3(x * f, y * f, z * f);
 	}
 
+	vec3 operator/(const float f) {
+		return vec3(x / f, y / f, z / f);
+	}
+
 	bool operator>(vec3 v) {
 		return (x > v.x && y > v.y && z > v.z);
 	}

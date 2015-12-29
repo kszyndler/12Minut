@@ -87,6 +87,7 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\3rd_party\bitmap\Bitmap.h" />
+    <ClInclude Include="SizeModifier.h" />
     <ClInclude Include="Collectable.h" />
     <ClInclude Include="CollectingManager.h" />
     <ClInclude Include="Colliding.h" />
@@ -98,6 +99,7 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
     <ClInclude Include="CollisionPolygon.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemsOnScene.h" />
+    <ClInclude Include="Modifier.h" />
     <ClInclude Include="ObjLoader.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="12minutes.h" />
@@ -113,6 +115,7 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\3rd_party\bitmap\Bitmap.cpp" />
+    <ClCompile Include="SizeModifier.cpp" />
     <ClCompile Include="Collectable.cpp" />
     <ClCompile Include="CollectingManager.cpp" />
     <ClCompile Include="Colliding.cpp" />
@@ -122,6 +125,7 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
     <ClCompile Include="12minutes.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemsOnScene.cpp" />
+    <ClCompile Include="Modifier.cpp" />
     <ClCompile Include="ObjLoader.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneObject.cpp" />

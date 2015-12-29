@@ -1,6 +1,8 @@
 #include "StdAfx.h"
+#include <memory>
 #include "Item.h"
 #include "ItemsOnScene.h"
+#include "SizeModifier.h"
 
 int findInVector(Item* value, vector<CSceneObject*>* vector)
 {
@@ -71,9 +73,9 @@ void CScene::Initialize(void) {
 		Terrain = new CTerrain();
 		Terrain->Initialize();
 
-		Item* boy = new Boy(0.0f, 0.0f, 0.3f, 0, 0, 0, 0.2, "boy2.obj");
-		Sofa* sofa = new Sofa(3.0f, 0.0f, 0.3f, 0, 0, 0, 0.01, "martin.obj");
-		Item* bookcase = new Item(0.0f, 0.0f, -2.0f, 0, 0, 0, 0.02, "case.obj");
+		Item* boy = new Boy(0.0f, 0.0f, 0.3f, 0, 0, 0, 0.2, "boy2.obj", this);
+		Sofa* sofa = new Sofa(3.0f, 0.0f, 0.3f, 0, 0, 0, 0.01, "martin.obj", this);
+		Item* bookcase = new Item(0.0f, 0.0f, -2.0f, 0, 0, 0, 0.02, "case.obj", this);
 
 		// Dodanie wszystkich obiektów sceny do wektora, po którym póŸniej bêdziemy iterowaæ chc¹c je rysowaæ.
 		// Dlatego w³aœnie wygodnie jest, gdy wszystkie obiekty sceny dziedzicz¹ po jednej, wspólnej klasie bazowej (CSceneObject).
@@ -315,22 +317,28 @@ void CScene::Render(void) {
 
 }
 
-void CScene::deleteObject(Item * obj)
-{
-	int objectId = findInVector(obj, Objects);
-	Objects->erase(Objects->begin() + objectId);
-
-}
 
 bool CScene::CallCollectingManager()
 {
 	Item* returnedItem = collectingManager->tryToCollect(Player);
 	if (returnedItem != nullptr)
-		deleteObject(returnedItem);
+	{
+		//deleteObject(returnedItem);
+		shared_ptr<SizeModifier> dissapear(new SizeModifier(1.0, this, returnedItem));
+		returnedItem->registerModifier(dissapear);
+	}
 
 	if (collectingManager->isDoneJob())
 	{
 		return true; //zakoncz gre
 	}
 	return false; 
+}
+
+void CScene::deleteObject(Item * obj)
+{
+	int objectId = findInVector(obj, Objects);
+	Objects->erase(Objects->begin() + objectId);
+	delete obj; 
+
 }

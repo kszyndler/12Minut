@@ -9,17 +9,19 @@
 class CWall : public CSceneObject, public Colliding
 {
 public:
-	CWall(vec3 a, vec3 b, vec3 c, vec3 d); // Konstruktor - pozycje czterech wierzcho³ków (musz¹ le¿eæ na jednej p³aszczyŸnie!). Ich kolejnoœæ decyduje o zwrocie wektora normalnego. Podajemy je przeciwnie do ruchu wskazówek zegara.
+	CWall(vec3 a, vec3 b, vec3 c, vec3 d, string texture); // Konstruktor - pozycje czterech wierzcho³ków (musz¹ le¿eæ na jednej p³aszczyŸnie!). Ich kolejnoœæ decyduje o zwrocie wektora normalnego. Podajemy je przeciwnie do ruchu wskazówek zegara.
 	~CWall(void); // Destruktor.
 	void Initialize(void); // Inicjalizacja (wywo³ana raz).
 	void Update(void); // Aktualizacja stanu.
 	void Render(void); // Rysowanie œciany.
 	vector<vec3> v; // Pozycje wierzcho³ków. 
 	vec3 n; // Wektor normalny œciany.
+	
 
 protected:
 	GLuint _displayListId; // Id displaylisty.
-	static bool _isLoaded; // Czy tekstura zosta³a ju¿ za³adowana (jest identyczna dla wszystkich instancji klasy)?
-	static CTexture * _wallTexture; // Tekstura.
+	//static bool _isLoaded; // Czy tekstura zosta³a ju¿ za³adowana (jest identyczna dla wszystkich instancji klasy)?
+	CTexture * _wallTexture; // Tekstura.
+	string textureName; 
 };
 

@@ -6,11 +6,12 @@ class CTexture
 public:
 	bool IsLoaded;
 
+	CTexture(char *, GLuint);
 	CTexture(char *);
 	CTexture(char *, int, int);
 	~CTexture(void);
-	bool Load(void);
-	GLuint GetId(void);
+	bool Load(bool);
+	GLuint GetId(bool);
 
 protected:
 	int _magFilter;

@@ -13,8 +13,8 @@ CSkydome::~CSkydome(void)
 
 void CSkydome::Initialize(void)
 {
-	_skyTexture = new CTexture("Resources\\Skydome.bmp", GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
-	_skyTexture->Load();
+	_skyTexture = new CTexture("Resources\\tex\\Skydome.bmp", GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
+	_skyTexture->Load(true);
 
 	_displayListId = glGenLists(1);
 
@@ -76,7 +76,7 @@ void CSkydome::Render(void)
 	glRotatef(Rotation.z, 0.0f, 0.0f, 1.0f);
 
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, _skyTexture->GetId());
+	glBindTexture(GL_TEXTURE_2D, _skyTexture->GetId(true));
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
 
 	glCallList(_displayListId);

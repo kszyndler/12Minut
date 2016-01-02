@@ -8,6 +8,7 @@ public:
 	~SizeModifier();
 	int update();
 
+
 private:
 	CScene* scene; 
 	Item* item; 

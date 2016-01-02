@@ -13,8 +13,8 @@ CTerrain::~CTerrain(void)
 
 void CTerrain::Initialize(void)
 {
-	_grassTexture = new CTexture("Resources\\Grass.bmp", GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
-	_grassTexture->Load();
+	_grassTexture = new CTexture("Resources\\tex\\Grass.bmp", GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
+	_grassTexture->Load(true);
 
 	_displayListId = glGenLists(1);
 
@@ -62,7 +62,7 @@ void CTerrain::Render(void)
 	glRotatef(Rotation.z, 0.0f, 0.0f, 1.0f);
 
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, _grassTexture->GetId());
+	glBindTexture(GL_TEXTURE_2D, _grassTexture->GetId(true));
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
 
 	glCallList(_displayListId);

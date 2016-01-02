@@ -2,19 +2,19 @@
 #include "Item.h"
 #include "CollidingItem.h"
 
-class Sofa :
+class Furniture :
 	public CollidingItem
 {
 public:
-	Sofa(float px, float py, float pz, float rx, float ry, float rz, float scale, string filename, CScene* scene) :
+	Furniture(float px, float py, float pz, float rx, float ry, float rz, float scale, string filename, CScene* scene) :
 		CollidingItem(px, py, pz, rx, ry, rz, scale, filename, scene) {};
 };
 
-class Boy :
+class AtWallItem :
 	public Item
 {
 public:
-	Boy(float px, float py, float pz, float rx, float ry, float rz, float scale, string filename, CScene* scene) :
+	AtWallItem(float px, float py, float pz, float rx, float ry, float rz, float scale, string filename, CScene* scene) :
 		Item(px, py, pz, rx, ry, rz, scale, filename, scene) {};
 };
 

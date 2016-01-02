@@ -9,10 +9,7 @@ SizeModifier::SizeModifier(int seconds, CScene* scene, Item* item):Modifier(seco
 }
 
 
-SizeModifier::~SizeModifier()
-{
-	
-}
+SizeModifier::~SizeModifier(){}
 
 int SizeModifier::update()
 {

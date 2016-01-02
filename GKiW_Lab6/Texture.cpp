@@ -1,6 +1,14 @@
 #include "StdAfx.h"
 #include "Texture.h"
 
+CTexture::CTexture(char * file, GLuint id)
+{
+	IsLoaded = false;
+	_id = id;
+	_file = file;
+	_magFilter = GL_LINEAR;
+	_minFilter = GL_LINEAR_MIPMAP_LINEAR;
+}
 
 CTexture::CTexture(char * file)
 {
@@ -20,7 +28,7 @@ CTexture::CTexture(char * file, int magFilter, int minFilter)
 	_minFilter = minFilter;
 }
 
-bool CTexture::Load(void)
+bool CTexture::Load(bool wroteBySelf)
 {
 	Bitmap *tex = new Bitmap();
 	if (!tex->loadBMP(_file)) {
@@ -28,7 +36,8 @@ bool CTexture::Load(void)
 		return false;
 	}
 
-	glGenTextures(1, &_id);
+	if (wroteBySelf == true)
+		glGenTextures(1, &_id);
 
 	glBindTexture(GL_TEXTURE_2D, _id);
 
@@ -55,10 +64,10 @@ CTexture::~CTexture(void)
 }
 
 
-GLuint CTexture::GetId(void)
+GLuint CTexture::GetId(bool wroteBySelf)
 {
 	if (!IsLoaded) {
-		Load();
+		Load(wroteBySelf);
 	}
 	return _id;
 }

@@ -47,8 +47,8 @@ int main(int argc, char* argv[])
 
 	glEnable(GL_LIGHTING);
 	
-	float gl_amb[] = { 0.0f, 0.0f, 0.0f, 1.0f };
-	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, gl_amb);
+	float gl_amb[] = { 0.2f, 0.2f, 0.2f, 1.0f };
+	//glLightModelfv(GL_LIGHT_MODEL_AMBIENT, gl_amb);
 	
 	mouseX = glutGet(GLUT_WINDOW_WIDTH) / 2;
 	mouseY = glutGet(GLUT_WINDOW_HEIGHT) / 2;

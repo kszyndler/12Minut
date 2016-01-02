@@ -56,7 +56,7 @@ bool CollectingManager::isCollectable(Item* item, CPlayer& playerState)
 	vec3 distanceLookingAtItemVector = pointLookingAt - item->Position;
 	float distanceLookingAtItem = sqrt(distanceLookingAtItemVector.x*distanceLookingAtItemVector.x + distanceLookingAtItemVector.y*distanceLookingAtItemVector.y + distanceLookingAtItemVector.z * distanceLookingAtItemVector.z);
 
-	if (distance < 2 && d<0.8 && distanceLookingAtItem < distance)
+	if (distance < 2 && d<1.5 && distanceLookingAtItem <= distance)
 		return true;
 	return false; 
 }

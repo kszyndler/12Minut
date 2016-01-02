@@ -1,12 +1,12 @@
 #include "StdAfx.h"
 
 // Zmienne statyczne pozwalaj¹ce na jednokrotne za³adowanie tekstury.
-bool CWall::_isLoaded = false;
-CTexture * CWall::_wallTexture = NULL;
+//bool CWall::_isLoaded = false;
+//CTexture * CWall::_wallTexture = NULL;
 
 // Konstruktor - wywo³ujemy konstruktor CSceneObject oraz ustawiamy wartoœci pocz¹tkowe
 // na podstawie zadanych wspó³rzêdnych.
-CWall::CWall(vec3 a, vec3 b, vec3 c, vec3 d) : CSceneObject(), Colliding(1)
+CWall::CWall(vec3 a, vec3 b, vec3 c, vec3 d, string texture) : CSceneObject(), Colliding(1)
  {
 	_displayListId = -1; // Na razie displaylisty jeszcze nie ma, utworzymy j¹ podczas inicjalizacji.
 	v.resize(4);
@@ -19,6 +19,7 @@ CWall::CWall(vec3 a, vec3 b, vec3 c, vec3 d) : CSceneObject(), Colliding(1)
 
 	vec3::Cross((c-b), (a-b), n); // Obliczenie wektora normalnego œciany...
 	n.Normalize(); // ...i jego normalizacja.
+	textureName = texture; 
 }
 
 
@@ -54,13 +55,18 @@ void CWall::Initialize(void)
 	glEndList();
 
 	// Tekstura jest dla wszystkich instancji CWall taka sama - nie ma sensu ³adowaæ jej wielokrotnie do pamiêci.
-	if (_isLoaded) {
-		return;
-	}
-	_isLoaded = true;
+	//if (_isLoaded) {
+	//	return;
+	//}
+	//_isLoaded = true;
 
-	_wallTexture = new CTexture("Resources\\Box.bmp", GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
-	_wallTexture->Load();
+	string texPath("Resources\\tex\\" + textureName);
+	char *cstr = new char[texPath.length() + 1];
+	strcpy(cstr, texPath.c_str());
+	_wallTexture = new CTexture(cstr, GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
+	_wallTexture->Load(true);
+	delete[] cstr;
+
 }
 
 // Aktualizacja stanu œciany.
@@ -80,7 +86,7 @@ void CWall::Render(void)
 	glMaterialfv(GL_FRONT, GL_SPECULAR, mS);
 
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, _wallTexture->GetId());
+	glBindTexture(GL_TEXTURE_2D, _wallTexture->GetId(true));
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
 	// Wywo³anie displaylisty.

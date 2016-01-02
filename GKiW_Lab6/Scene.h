@@ -14,7 +14,7 @@ class CScene
 public:
 	
 	CSkydome * Skydome; // Skydome - niebo.
-	CTerrain * Terrain; // Teren - czyli w naszym przyk³adzie trawiasty quad.
+	//CTerrain * Terrain; // Teren - czyli w naszym przyk³adzie trawiasty quad.
 	CPlayer Player; // Stan gracza.
 	CollectingManager* collectingManager;
 

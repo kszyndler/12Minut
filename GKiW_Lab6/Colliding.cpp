@@ -81,7 +81,7 @@ void Colliding::createWall(vec3 peakA, vec3 peakB, vec3 wall[4])
 	float zA = peakA.z;
 	float zB = peakB.z; 
 	float ymin = 0.0; 
-	float ymax = collisionShape.height;
+	float ymax = 2.0;
 
 	wall[0].Set(xA, ymin, zA);
 	wall[1].Set(xA, ymax, zA);

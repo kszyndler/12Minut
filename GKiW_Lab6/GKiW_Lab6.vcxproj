@@ -87,6 +87,7 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\3rd_party\bitmap\Bitmap.h" />
+    <ClInclude Include="RotationModifier.h" />
     <ClInclude Include="SizeModifier.h" />
     <ClInclude Include="Collectable.h" />
     <ClInclude Include="CollectingManager.h" />
@@ -115,6 +116,7 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\3rd_party\bitmap\Bitmap.cpp" />
+    <ClCompile Include="RotationModifier.cpp" />
     <ClCompile Include="SizeModifier.cpp" />
     <ClCompile Include="Collectable.cpp" />
     <ClCompile Include="CollectingManager.cpp" />

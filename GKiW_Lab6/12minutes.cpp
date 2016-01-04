@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include <conio.h>
 
 #pragma region Zmienne globalne
 
@@ -80,7 +81,7 @@ int main(int argc, char* argv[])
 
 	void OnKeyDown(unsigned char key, int x, int y) {
 		if (key == 27) {
-			glutLeaveMainLoop();
+			endGame(27);
 		}
 
 		if (key == 32) {

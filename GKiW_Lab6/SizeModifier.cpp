@@ -2,7 +2,7 @@
 #include "SizeModifier.h"
 
 
-SizeModifier::SizeModifier(int seconds, CScene* scene, Item* item):Modifier(seconds)
+SizeModifier::SizeModifier(float seconds, CScene* scene, Item* item):Modifier(seconds)
 {
 	this->scene = scene; 
 	this->item = item; 
@@ -13,7 +13,7 @@ SizeModifier::~SizeModifier(){}
 
 int SizeModifier::update()
 {
-	item->scaleFactor *= 0.995; 
+	item->scaleFactor *= 0.985; 
 	pastOccurences++;
 	if (pastOccurences < occurences)
 		return 0;

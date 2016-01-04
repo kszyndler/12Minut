@@ -15,25 +15,65 @@ int findInVector(Item* value, vector<CSceneObject*>* vector)
 	return -1;
 }
 
-void output(int x, int y, float r, float g, float b, char *string)
+float countVectorLength(vec3 a, vec3 b)
 {
-	glColor3f(r, g, b);
-	glRasterPos2f(x, y);
-	int len, i;
-	len = (int)strlen(string);
-	for (i = 0; i < len; i++) {
-		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_10, string[i]);
+	float x = a.x - b.x;
+	float y = a.y - b.y;
+	float z = a.z - b.z;
+
+	return sqrt(x*x + y*y + z*z);
+}
+
+
+void setOrthographicProjection()
+{
+
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	gluOrtho2D(0, GLUT_WINDOW_WIDTH, GLUT_WINDOW_HEIGHT , 0);
+	glMatrixMode(GL_MODELVIEW);
+}
+void restorePerspectiveProjection() {
+
+	glMatrixMode(GL_PROJECTION);
+	// restore previous projection matrix
+	glPopMatrix();
+
+	// get back to modelview mode
+	glMatrixMode(GL_MODELVIEW);
+}
+void renderSpacedBitmapString(float x, float y, int spacing, void *font, char *string) 
+{
+	char *c;
+	int x1 = x;
+
+	for (c = string; *c != '\0'; c++) {
+
+		glRasterPos2f(x1, y);
+		glutBitmapCharacter(font, *c);
+		x1 = x1 + glutBitmapWidth(font, *c) + spacing;
+	}
+}
+void renderVerticalBitmapString(float x, float y, int bitmapHeight, void *font, char *string) 
+{
+	char *c;
+	int i;
+
+	for (c = string, i = 0; *c != '\0'; i++, c++) {
+
+		glRasterPos2f(x, y + bitmapHeight*i);
+		glutBitmapCharacter(font, *c);
 	}
 }
 
-void set2DMode()
+void renderBitmapString(float x, float y, void *font, char *string) 
 {
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(0, GLUT_WINDOW_WIDTH, GLUT_WINDOW_HEIGHT/10, 0, -1, 1);
-
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	char *c;
+	glRasterPos2f(x, y);
+	for (c = string; *c != '\0'; c++) {
+		glutBitmapCharacter(font, *c);
+	}
 }
 
 // Konstruktor.
@@ -76,7 +116,7 @@ void CScene::Initialize(void) {
 		Player.dir.y = 0.0f;
 		Player.dir.z = -1.0f;
 
-		Player.speed = .5f;
+		Player.speed = .7f;
 
 	#pragma endregion
 
@@ -87,23 +127,35 @@ void CScene::Initialize(void) {
 		//Terrain = new CTerrain();
 		//Terrain->Initialize();
 
-		Furniture* sofa = new Furniture(3.0f, 0.0f, 1.0f, 0, 0, 0, 0.09, "sofa", this);
-		Furniture* coffeTable = new Furniture(3.0f, 0.0f, 0.0f, 0, 0, 0, 0.001, "coffeetable", this);
-		Furniture* tv = new Furniture(3.0, 0.0, -3.0, 0, 0, 0, 0.4, "tv", this);
-		AtWallItem* bookShelve = new AtWallItem(5.0, 0.8, -3.2, 0, 0, 0, 0.03, "bookshelve", this);
-		Furniture* shelves = new Furniture(5.0, 0.0, -3.0, 0, 0, 0, 0.009, "shelves", this);
-		AtWallItem* window = new AtWallItem(7.0, 0.5, -0.4, 0, 0, 0, 0.03, "window", this);
-		AtWallItem* window2 = new AtWallItem(7.0, 0.5, -1.2, 0, 0, 0, 0.03, "window", this);
-		Furniture* fotel = new Furniture(3.8f, 0.2f, 0.0f, 0, 0, 0, 0.025, "chair", this);
-		Furniture* fotel2 = new Furniture(1.2f, 0.2f, -0.35f, 0, 0, 0, 0.025, "chair2obj", this);
-		Furniture* lamp = new Furniture(3.3, 0.5, 0.0, 0, 0, 0, 0.003, "ikeaLamp", this);
-		AtWallItem* lion = new AtWallItem(3.0f, 1.2f, 1.5f, 0, 0, 0, 0.009, "head", this);
-		Furniture* regal = new Furniture(6.0, -0.01, 1.0, 0, 0, 0, 0.0011, "reg", this);
-		Furniture* vase1 = new Furniture(6.0, 0.0, -2.1, 0, 0, 0, 0.015, "vase1", this);
-		Furniture* vase2 = new Furniture(5.6, 0.0, -1.7, 0, 0, 0, 0.01, "vase1", this);
-		AtWallItem* ceillamp = new AtWallItem(4.0, 2.0, -1.3, 0.0, 0, 0, 0.025, "ceilamp", this);
-		AtWallItem* bible = new AtWallItem(6.1, 0.95, 1.0, 30, 0, 0, 0.1, "bible", this);
-		AtWallItem* books = new AtWallItem(4.7, 0.71, -3.0, 0, 0, 0, 0.008, "books", this);
+		CollidingItem* sofa = new CollidingItem(3.0f, 0.0f, 1.0f, 0, 0, 0, 0.09, "sofa", this);
+		CollidingItem* coffeTable = new CollidingItem(3.0f, 0.0f, 0.0f, 0, 0, 0, 0.001, "coffeetable", this);
+		CollidingItem* tv = new CollidingItem(3.0, 0.0, -3.0, 0, 0, 0, 0.4, "tv", this);
+		Item* bookShelve = new Item(5.0, 0.8, -3.2, 0, 0, 0, 0.03, "bookshelve", this);
+		CollidingItem* shelves = new CollidingItem(5.0, 0.0, -3.0, 0, 0, 0, 0.009, "shelves", this);
+		CollidingItem* window = new CollidingItem(7.0, 0.5, -0.4, 0, 0, 0, 0.03, "window", this);
+		CollidingItem* window2 = new CollidingItem(7.0, 0.5, -1.2, 0, 0, 0, 0.03, "window", this);
+		CollidingItem* fotel = new CollidingItem(3.8f, 0.2f, 0.0f, 0, 0, 0, 0.025, "chair", this);
+		CollidingItem* fotel2 = new CollidingItem(1.2f, 0.2f, -0.35f, 0, 0, 0, 0.025, "chair2obj", this);
+		CollidingItem* lamp = new CollidingItem(3.3, 0.5, 0.0, 0, 0, 0, 0.003, "ikeaLamp", this);
+		Item* lion = new Item(3.0f, 1.2f, 1.5f, 0, 0, 0, 0.009, "head", this);
+		CollidingItem* regal = new CollidingItem(6.0, -0.01, 1.0, 0, 0, 0, 0.0011, "reg", this);
+		CollidingItem* vase1 = new CollidingItem(6.0, 0.0, -2.1, 0, 0, 0, 0.015, "vase1", this);
+		Vase* vase2 = new Vase(5.6, 0.0, -1.7, 0, 0, 0, 0.01, "vase1", this);
+		Item* ceillamp = new Item(4.0, 2.0, -1.3, 0.0, 0, 0, 0.025, "ceilamp", this);
+		Bible* bible = new Bible(6.1, 0.95, 1.0, 30, 0, 0, 0.1, "bible", this);
+		Item* books = new Item(4.6, 0.65, -3.0, 0, 0, 0, 0.006, "books", this);
+		Frame* frame = new Frame(5.4, 0.65, -3.0, 0, -20, 0, 0.03, "frame", this);
+		Item* doors = new Item(-0.4, 0.0, -1.0, 0, -5, 0, 0.02, "doors6", this);
+		CollidingItem* fridge = new CollidingItem(4.0, 0.0, 0.4, 0, 0, 0, 0.03, "cook", this);
+		Key* key = new Key (6.0, 0.87, 0.99, 90, 0, 0, 0.02, "key", this);
+		MagGlass* glass = new MagGlass(4.9, 1.0, -3.2, 0, 90, 0, 0.01, "magglass", this);
+		ScrewDriver* screwDriver = new ScrewDriver(2.0, 0, 1.4, 0, 90, 0, 0.004, "screwdriver", this);
+		Dolar* dolar = new Dolar(4.7, 0.65, -3.1, 0, 20, 0, 0.2, "dolar", this);
+		Phone* phone = new Phone(2.4, 0.65, -3.0, 0, 20, 180, 0.15, "phone", this);
+		Boxd* boxd = new Boxd(0.0, 0.0, 1.0, 0, 20, 0, 0.03, "boxDown", this);
+		Boxu* boxu = new Boxu(0.0, 0.01, 1.0, 0, 20, 0, 0.03, "boxUp", this);
+		Rings* rings = new Rings(0.0, 0.0001, 1.0, 0, 0, 0, 0.3, "rings", this);
+
 
 		// Dodanie wszystkich obiektów sceny do wektora, po którym póŸniej bêdziemy iterowaæ chc¹c je rysowaæ.
 		// Dlatego w³aœnie wygodnie jest, gdy wszystkie obiekty sceny dziedzicz¹ po jednej, wspólnej klasie bazowej (CSceneObject).
@@ -126,6 +178,19 @@ void CScene::Initialize(void) {
 		ceillamp->Initialize();
 		bible->Initialize();
 		books->Initialize();
+		frame->Initialize();
+		doors->Initialize();
+		key->Initialize();
+		//fridge->Initialize();
+		glass->Initialize();
+		screwDriver->Initialize();
+		dolar->Initialize();
+		phone->Initialize();
+		boxd->Initialize();
+		boxu->Initialize();
+		rings->Initialize();
+
+
 
 		Objects->push_back(sofa);
 		Objects->push_back(coffeTable);
@@ -144,6 +209,18 @@ void CScene::Initialize(void) {
 		Objects->push_back(ceillamp);
 		Objects->push_back(bible);
 		Objects->push_back(books);
+		Objects->push_back(frame);
+		//Objects->push_back(fridge);
+		Objects->push_back(doors);
+		Objects->push_back(key);
+		Objects->push_back(glass);
+		Objects->push_back(screwDriver);
+		Objects->push_back(dolar);
+		Objects->push_back(phone);
+		Objects->push_back(boxd);
+		Objects->push_back(boxu);
+		Objects->push_back(rings);
+
 
 		// Definicje po³o¿enia naszych œcian. Ka¿da kolejna czwórka wektorów to jeden quad.
 		const float height = 2.9; 
@@ -182,9 +259,21 @@ void CScene::Initialize(void) {
 #pragma region Zbieranie przedmiotow
 		queue <Item*>* ItemsToCollect = new queue<Item*>; 
 		ItemsToCollect->push(bible);
+		ItemsToCollect->push(glass);
+		//ItemsToCollect->push(bible);
+		ItemsToCollect->push(dolar);
+		ItemsToCollect->push(phone);
+		ItemsToCollect->push(frame);
+		ItemsToCollect->push(boxu);
+		ItemsToCollect->push(key);
+		ItemsToCollect->push(boxd);
+		ItemsToCollect->push(rings);
 		ItemsToCollect->push(vase2);
+		ItemsToCollect->push(screwDriver);
+
 
 		collectingManager = new CollectingManager(ItemsToCollect);
+		toFind = collectingManager->getHead();
 
 #pragma endregion
 	
@@ -259,7 +348,7 @@ void CScene::Update(void) {
 		nextPlayerPos.z += per.z * Player.velS * .1f;
 		
 		// Uniemo¿liwiamy zejœcie gracza poni¿ej poziomu terenu
-		nextPlayerPos.y = __max(0.7f, nextPlayerPos.y);
+		nextPlayerPos.y = __max(0.9f, nextPlayerPos.y);
 
 		// Zmieniamy pozycjê gracza o wyliczony wczeœniej wektor przemieszczenia, uwzglêdniaj¹c przy tym kolizje ze œwiatem
 		// "Objects" powinno byæ wektorem tylko tych obiektów, z którymi chcemy sprawdziæ kolizjê. Dobrze by³oby
@@ -272,6 +361,10 @@ void CScene::Update(void) {
 		Player.velS /= 1.2;
 
 	#pragma endregion
+		if (countVectorLength(Player.pos, (*Objects)[19]->Position) < 3.0)
+		{
+			//zawolaj rotate modifier
+		}
 
 	#pragma region Aktualizacja obiektow sceny
 
@@ -336,19 +429,8 @@ void CScene::Render(void) {
 		glLightf(GL_LIGHT2, GL_QUADRATIC_ATTENUATION, 0.2f);
 
 
-	#pragma endregion
+	#pragma endregion		
 
-	#pragma region Skydome
-
-
-
-	#pragma endregion
-
-	//#pragma region Teren
-
-	//	Terrain->Render();
-
-	//#pragma endregion
 
 	#pragma region Obiekty
 
@@ -357,22 +439,6 @@ void CScene::Render(void) {
 			Objects->at(i)->Render();
 		}
 
-		//swiatlo szescian
-		glPushMatrix();
-			glTranslatef(l1_pos[0], l1_pos[1], l1_pos[2]);
-			glDisable(GL_LIGHTING);
-			glColor3f(1.0, 0.0, 0.0);
-			glutSolidCube(0.1);
-			glEnable(GL_LIGHTING);
-		glPopMatrix();
-
-		glPushMatrix();
-		glTranslatef(6.0, 0.8, 1.0);
-		glDisable(GL_LIGHTING);
-		glColor3f(0.0, 1.0, 0.0);
-		//glutSolidCube(0.1);
-		glEnable(GL_LIGHTING);
-		glPopMatrix();
 
 	#pragma endregion
 
@@ -404,6 +470,20 @@ void CScene::Render(void) {
 	#pragma endregion
 
 
+		setOrthographicProjection();
+
+		glPushMatrix();
+		glLoadIdentity();
+
+		char* riddle = " ";
+		if(toFind != nullptr)
+			riddle = toFind->Riddle;
+		renderBitmapString(20, 90, GLUT_BITMAP_HELVETICA_18, riddle);
+
+		glPopMatrix();
+
+		restorePerspectiveProjection();
+
 }
 
 
@@ -412,9 +492,12 @@ bool CScene::CallCollectingManager()
 	Item* returnedItem = collectingManager->tryToCollect(Player);
 	if (returnedItem != nullptr)
 	{
+		//co dalej? 
 		//deleteObject(returnedItem);
-		shared_ptr<SizeModifier> dissapear(new SizeModifier(1.0, this, returnedItem));
-		returnedItem->registerModifier(dissapear);
+			shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, this, returnedItem));
+			returnedItem->registerModifier(dissapear);
+
+		toFind = collectingManager->getHead();
 	}
 
 	if (collectingManager->isDoneJob())

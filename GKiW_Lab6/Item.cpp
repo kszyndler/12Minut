@@ -20,6 +20,7 @@ Item::Item(float px, float py, float pz, float rx, float ry, float rz, float sca
 	Name = filename;
 	scaleFactor = 1; 
 	this->scene = scene; 
+	Riddle = " ";
 }
 
 

@@ -4,7 +4,6 @@
 
 Collectable::Collectable()
 {
-
 }
 
 
@@ -14,6 +13,4 @@ Collectable::~Collectable()
 }
 
 void Collectable::collect()
-{
-
-}
+{}

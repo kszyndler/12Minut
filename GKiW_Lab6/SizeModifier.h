@@ -4,7 +4,7 @@ class SizeModifier :
 	public Modifier
 {
 public:
-	SizeModifier(int, CScene*, Item*);
+	SizeModifier(float, CScene*, Item*);
 	~SizeModifier();
 	int update();
 

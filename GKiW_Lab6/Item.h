@@ -15,7 +15,9 @@ public:
 	void Update();
 	void Render();
 	float scaleFactor;
+	float rotationFactor; 
 	void registerModifier(shared_ptr<Modifier> modifier);
+	char* Riddle; 
 
 protected:
 	int height; 
@@ -25,6 +27,5 @@ protected:
 	CTexture * _itemTexture;
 	vector < shared_ptr< Modifier > > modifierRegister; 
 	CScene* scene; 
-
 };
 

@@ -36,5 +36,7 @@ public:
 	vec3 LastCollisionPoint; // Pozycja ostatniej kolizji.
 	bool MarkCollision; // Czy ju¿ zaistnia³a jakakolwiek kolizja warta narysowania?
 
+private:
+	Item* toFind;
 };
 

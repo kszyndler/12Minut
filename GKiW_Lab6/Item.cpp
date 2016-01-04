@@ -20,7 +20,6 @@ Item::Item(float px, float py, float pz, float rx, float ry, float rz, float sca
 	Name = filename;
 	scaleFactor = 1; 
 	this->scene = scene; 
-	Riddle = " ";
 }
 
 
@@ -84,11 +83,11 @@ void Item::Update()
 
 void Item::Render()
 {
-	Scale *= scaleFactor; 
+	float newScale = Scale *= scaleFactor; 
 
 	glPushMatrix();
 		glTranslatef(Position.x, Position.y, Position.z);
-		glScalef(Scale, Scale, Scale);
+		glScalef(newScale, newScale, newScale);
 		glRotatef(Rotation.x, 1.0f, 0.0f, 0.0f);
 		glRotatef(Rotation.y, 0.0f, 1.0f, 0.0f);
 		glRotatef(Rotation.z, 0.0f, 0.0f, 1.0f);

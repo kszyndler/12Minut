@@ -1,6 +1,89 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (GKiW_Lab6.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  stdafx.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\vec3.h(102): warning C4305: 'argument': truncation from 'double' to 'const float'
+  TimeModifier.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\timemodifier.cpp(24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Scene.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(23): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(48): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(74): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(91): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(108): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(125): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(142): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(159): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(201): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(9): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(78): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(79): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(80): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(81): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(82): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(83): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(84): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(85): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(86): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(87): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(88): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(89): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(90): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(91): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(92): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(93): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(94): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(95): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(96): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(97): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(98): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(99): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(100): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(101): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(102): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(103): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(104): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(105): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(174): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(175): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(176): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(177): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(178): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(225): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(307): warning C4305: '/=': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(308): warning C4305: '/=': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(309): warning C4305: '/=': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(310): warning C4305: '/=': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(321): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(347): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(347): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(348): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(348): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(359): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(359): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(370): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(370): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(387): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  Wall.cpp
+  Texture.cpp
+  Terrain.cpp
+  Skydome.cpp
+  SizeModifier.cpp
+  SceneObject.cpp
+  RotationModifier.cpp
+  ObjLoader.cpp
+  Modifier.cpp
+  ItemsOnScene.cpp
   Item.cpp
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\item.cpp(45): warning C4018: '<': signed/unsigned mismatch
+  Interface.cpp
+  CollisionPolygon.cpp
+  CollisionDetection.cpp
+  CollidingItem.cpp
+  Colliding.cpp
+  CollectingManager.cpp
+  Collectable.cpp
+  12minutes.cpp
+  Bitmap.cpp
   GKiW_Lab6.vcxproj -> C:\Users\Karolina\Documents\Studia\Grafik\12minut\12Minut\Debug\12minutes.exe
           1 file(s) copied.
   File not found - *.bmp

@@ -8,9 +8,9 @@ public:
 	~SizeModifier();
 	int update();
 
-
 private:
 	CScene* scene; 
 	Item* item; 
+	vec3 distance; 
 };
 

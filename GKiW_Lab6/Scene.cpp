@@ -24,58 +24,6 @@ float countVectorLength(vec3 a, vec3 b)
 	return sqrt(x*x + y*y + z*z);
 }
 
-
-void setOrthographicProjection()
-{
-
-	glMatrixMode(GL_PROJECTION);
-	glPushMatrix();
-	glLoadIdentity();
-	gluOrtho2D(0, GLUT_WINDOW_WIDTH, GLUT_WINDOW_HEIGHT , 0);
-	glMatrixMode(GL_MODELVIEW);
-}
-void restorePerspectiveProjection() {
-
-	glMatrixMode(GL_PROJECTION);
-	// restore previous projection matrix
-	glPopMatrix();
-
-	// get back to modelview mode
-	glMatrixMode(GL_MODELVIEW);
-}
-void renderSpacedBitmapString(float x, float y, int spacing, void *font, char *string) 
-{
-	char *c;
-	int x1 = x;
-
-	for (c = string; *c != '\0'; c++) {
-
-		glRasterPos2f(x1, y);
-		glutBitmapCharacter(font, *c);
-		x1 = x1 + glutBitmapWidth(font, *c) + spacing;
-	}
-}
-void renderVerticalBitmapString(float x, float y, int bitmapHeight, void *font, char *string) 
-{
-	char *c;
-	int i;
-
-	for (c = string, i = 0; *c != '\0'; i++, c++) {
-
-		glRasterPos2f(x, y + bitmapHeight*i);
-		glutBitmapCharacter(font, *c);
-	}
-}
-
-void renderBitmapString(float x, float y, void *font, char *string) 
-{
-	char *c;
-	glRasterPos2f(x, y);
-	for (c = string; *c != '\0'; c++) {
-		glutBitmapCharacter(font, *c);
-	}
-}
-
 // Konstruktor.
 CScene::CScene(void)
 {
@@ -274,6 +222,7 @@ void CScene::Initialize(void) {
 
 		collectingManager = new CollectingManager(ItemsToCollect);
 		toFind = collectingManager->getHead();
+		userInterface.initBackground(GLUT_WINDOW_WIDTH / 2, GLUT_WINDOW_HEIGHT*0.9, GLUT_WINDOW_WIDTH, GLUT_WINDOW_HEIGHT*0.1);
 
 #pragma endregion
 	
@@ -470,19 +419,13 @@ void CScene::Render(void) {
 	#pragma endregion
 
 
-		setOrthographicProjection();
-
-		glPushMatrix();
-		glLoadIdentity();
 
 		char* riddle = " ";
+		char* action = " ";
 		if(toFind != nullptr)
 			riddle = toFind->Riddle;
-		renderBitmapString(20, 90, GLUT_BITMAP_HELVETICA_18, riddle);
-
-		glPopMatrix();
-
-		restorePerspectiveProjection();
+		userInterface.draw(20, 90, GLUT_BITMAP_HELVETICA_18, riddle);
+		userInterface.draw(20, 20, GLUT_BITMAP_HELVETICA_18, action);
 
 }
 

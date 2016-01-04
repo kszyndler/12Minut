@@ -16,8 +16,7 @@ public:
 	void Render();
 	float scaleFactor;
 	void registerModifier(shared_ptr<Modifier> modifier);
-	char* Riddle; 
-
+	
 protected:
 	int height; 
 	vector<vec3> extremePeaks; 

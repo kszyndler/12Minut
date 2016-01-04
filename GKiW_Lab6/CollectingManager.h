@@ -11,7 +11,7 @@ public:
 	~CollectingManager();
 	Collectable* tryToCollect(CPlayer& playerState);
 	bool isDoneJob();
-	Item* getHead();
+	Collectable* getHead();
 
 private:
 	queue <Collectable*>* ItemsToCollect;

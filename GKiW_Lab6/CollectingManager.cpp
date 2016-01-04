@@ -72,9 +72,9 @@ bool CollectingManager::isDoneJob()
 	return false;
 }
 
-Item * CollectingManager::getHead()
+Collectable * CollectingManager::getHead()
 {
 	if (ItemsToCollect->empty())
 		return nullptr;
-	return dynamic_cast<Item*>(ItemsToCollect->front());
+	return ItemsToCollect->front();
 }

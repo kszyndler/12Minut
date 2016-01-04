@@ -87,6 +87,7 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\3rd_party\bitmap\Bitmap.h" />
+    <ClInclude Include="Interface.h" />
     <ClInclude Include="RotationModifier.h" />
     <ClInclude Include="SizeModifier.h" />
     <ClInclude Include="Collectable.h" />
@@ -111,11 +112,13 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TimeModifier.h" />
     <ClInclude Include="Vec3.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\3rd_party\bitmap\Bitmap.cpp" />
+    <ClCompile Include="Interface.cpp" />
     <ClCompile Include="RotationModifier.cpp" />
     <ClCompile Include="SizeModifier.cpp" />
     <ClCompile Include="Collectable.cpp" />
@@ -138,6 +141,7 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
     </ClCompile>
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TimeModifier.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>

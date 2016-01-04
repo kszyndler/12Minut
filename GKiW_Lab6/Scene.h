@@ -1,5 +1,7 @@
 #pragma once
 #include "CollectingManager.h"
+#include "Interface.h"
+#include "TimeModifier.h"
 
 //mediator
 // Scena - Jest to podstawowy element organizuj¹cy hierarchiê obiektów w grze.
@@ -37,6 +39,8 @@ public:
 	bool MarkCollision; // Czy ju¿ zaistnia³a jakakolwiek kolizja warta narysowania?
 
 private:
-	Item* toFind;
+	Collectable* toFind;
+	Interface userInterface;
+	TimeModifier stoperwatch; 
 };
 

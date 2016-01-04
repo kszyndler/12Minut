@@ -2,7 +2,7 @@
 #include "CollectingManager.h"
 #include <math.h>
 
-CollectingManager::CollectingManager(queue <Item*>* Items)
+CollectingManager::CollectingManager(queue <Collectable*>* Items)
 {
 	ItemsToCollect = Items; 
 }
@@ -12,20 +12,22 @@ CollectingManager::~CollectingManager()
 	delete ItemsToCollect;
 }
 
-Item* CollectingManager::tryToCollect(CPlayer & playerState)
+Collectable* CollectingManager::tryToCollect(CPlayer & playerState)
 {
 	printf("W Collectorze\n");
 
 	if (ItemsToCollect->empty())
 		return nullptr; 
 
-	Item* head = ItemsToCollect->front();
+	Item* head = dynamic_cast<Item*>(ItemsToCollect->front());
 
 	if (isCollectable(head, playerState))
 	{
+		Collectable* popped = ItemsToCollect->front();
 		ItemsToCollect->pop();
 
-		return head; 
+		return popped; 
+		//return ItemsToCollect->front(); 
 	}
 
 	return nullptr; 
@@ -74,5 +76,5 @@ Item * CollectingManager::getHead()
 {
 	if (ItemsToCollect->empty())
 		return nullptr;
-	return ItemsToCollect->front();
+	return dynamic_cast<Item*>(ItemsToCollect->front());
 }

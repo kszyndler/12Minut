@@ -4,6 +4,8 @@ class Collectable
 public:
 	Collectable();
 	~Collectable();
-	void collect();
+	virtual void collect(CScene*) {};
+protected:
+	int callsNumber;
 };
 

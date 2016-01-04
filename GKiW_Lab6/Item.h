@@ -15,7 +15,6 @@ public:
 	void Update();
 	void Render();
 	float scaleFactor;
-	float rotationFactor; 
 	void registerModifier(shared_ptr<Modifier> modifier);
 	char* Riddle; 
 

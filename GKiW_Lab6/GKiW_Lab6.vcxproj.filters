@@ -109,10 +109,10 @@
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="SizeModifier.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="RotationModifier.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -173,11 +173,11 @@
     <ClCompile Include="Modifier.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="SizeModifier.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RotationModifier.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="SizeModifier.cpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

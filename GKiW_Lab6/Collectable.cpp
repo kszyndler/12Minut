@@ -4,6 +4,7 @@
 
 Collectable::Collectable()
 {
+	callsNumber = 0;
 }
 
 
@@ -12,5 +13,3 @@ Collectable::~Collectable()
 
 }
 
-void Collectable::collect()
-{}

@@ -1,58 +1,6 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (GKiW_Lab6.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Scene.cpp
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(9): warning C4018: '<': signed/unsigned mismatch
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(49): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(53): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(130): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(131): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(132): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(133): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(134): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(135): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(136): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(137): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(138): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(139): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(140): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(141): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(142): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(143): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(144): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(145): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(146): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(147): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(148): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(149): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(150): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(151): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(152): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(153): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(154): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(155): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(156): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(157): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(226): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(227): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(228): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(229): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(230): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(358): warning C4305: '/=': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(359): warning C4305: '/=': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(360): warning C4305: '/=': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(361): warning C4305: '/=': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(372): warning C4018: '<': signed/unsigned mismatch
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(398): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(398): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(399): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(399): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(410): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(410): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(421): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(421): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(438): warning C4018: '<': signed/unsigned mismatch
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(497): warning C4305: 'argument': truncation from 'double' to 'float'
-  CollectingManager.cpp
-  Generating Code...
+  Item.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\item.cpp(45): warning C4018: '<': signed/unsigned mismatch
   GKiW_Lab6.vcxproj -> C:\Users\Karolina\Documents\Studia\Grafik\12minut\12Minut\Debug\12minutes.exe
           1 file(s) copied.
   File not found - *.bmp

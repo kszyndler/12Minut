@@ -2,6 +2,10 @@
 #include "Item.h"
 #include "CollidingItem.h"
 #include "Collectable.h"
+#include "SizeModifier.h"
+#include "RotationModifier.h"
+
+using namespace std; 
 
 class Bible :
 	public Item ,public Collectable
@@ -12,10 +16,26 @@ public:
 	{
 		Riddle = "Znajdz Biblie";
 	};
+	void collect(CScene* scene)
+	{
+		if (callsNumber == 1)
+		{
+			shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, scene, this));
+			registerModifier(dissapear);
+		}
+		else if (callsNumber == 0)
+		{
+			Riddle = "Przeczytaj tekst";
+		}
+		callsNumber++;
+	}
+
+private:
+
 };
 
 class Vase :
-	public CollidingItem
+	public CollidingItem, public Collectable
 {
 public:
 	Vase(float px, float py, float pz, float rx, float ry, float rz, float scale, string filename, CScene* scene) :
@@ -23,6 +43,12 @@ public:
 	{
 		Riddle = "Mniejsze rozmiary skrywaja wieksze sekrety";
 	};
+	void collect(CScene* scene)
+	{
+		shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, scene, this));
+		registerModifier(dissapear);
+		callsNumber++;
+	}
 };
 
 class Doors :
@@ -43,6 +69,12 @@ public:
 	{
 		Riddle = "Czytasz wiadomosc od numeru: 'W paryzu bylo cudownie'";
 	};
+	void collect(CScene* scene)
+	{
+		shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, scene, this));
+		registerModifier(dissapear);
+		callsNumber++;
+	}
 };
 
 class Key :
@@ -54,6 +86,12 @@ public:
 	{
 		Riddle = "Kuferek jest zamkniety";
 	};
+	void collect(CScene* scene)
+	{
+		shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, scene, this));
+		registerModifier(dissapear);
+		callsNumber++;
+	}
 };
 
 class MagGlass :
@@ -65,6 +103,12 @@ public:
 	{
 		Riddle = "Druk jest drobny, nie mozesz przeczytac";
 	};
+	void collect(CScene* scene)
+	{
+		shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, scene, this));
+		registerModifier(dissapear);
+		callsNumber++;
+	}
 };
 
 class ScrewDriver :
@@ -76,6 +120,12 @@ public:
 	{
 		Riddle = "Odkrec sruby";
 	};
+	void collect(CScene* scene)
+	{
+		shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, scene, this));
+		registerModifier(dissapear);
+		callsNumber++;
+	}
 };
 
 class Dolar :
@@ -87,6 +137,12 @@ public:
 	{
 		Riddle = "Czytasz: 'Nie mozecie sluzyæ Bogu i Mamonie'";
 	};
+	void collect(CScene* scene)
+	{
+		shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, scene, this));
+		registerModifier(dissapear);
+		callsNumber++;
+	}
 };
 
 class Phone :
@@ -98,27 +154,37 @@ public:
 	{
 		Riddle = "Na odwrocie banknotu znajdujesz numer teledonu: 540 240 328";
 	};
+	void collect(CScene* scene)
+	{
+		shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, scene, this));
+		registerModifier(dissapear);
+		callsNumber++;
+	}
 };
 
-class Boxu :
-	public CollidingItem
+class Box :
+	public CollidingItem, public Collectable
 {
 public:
-	Boxu(float px, float py, float pz, float rx, float ry, float rz, float scale, string filename, CScene* scene) :
+	Box(float px, float py, float pz, float rx, float ry, float rz, float scale, string filename, CScene* scene) :
 		CollidingItem(px, py, pz, rx, ry, rz, scale, filename, scene)
 	{
-		Riddle = "Na zdjeciu dostrzegasz maly, kolorowy kuferek";
+		Riddle = "Zauwazasz, ze postaci na zdjeciu nosza takie same, srebrne obraczki";
 	};
-};
-class Boxd :
-	public CollidingItem
-{
-public:
-	Boxd(float px, float py, float pz, float rx, float ry, float rz, float scale, string filename, CScene* scene) :
-		CollidingItem(px, py, pz, rx, ry, rz, scale, filename, scene)
+	void collect(CScene* scene)
 	{
-		Riddle = "Otworz kuferek";
-	};
+		if (callsNumber == 0)
+		{
+			Riddle = "Otworz kuferek";
+		}
+		else if (callsNumber == 1)
+		{
+			shared_ptr<RotationModifier> open(new RotationModifier(1.0, this, 0, 0, 30));
+			registerModifier(open);
+		}
+		callsNumber++;
+	}
+
 };
 
 class Rings :
@@ -130,4 +196,10 @@ public:
 	{
 		Riddle = "Podnies obraczki";
 	};
+	void collect(CScene* scene)
+	{
+		shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, scene, this));
+		registerModifier(dissapear);
+		callsNumber++;
+	}
 };

@@ -69,6 +69,10 @@ void Item::Update()
 			it = modifierRegister.erase(it);
 			killYourself = true; 
 		}
+		else if (nextAction == 2)
+		{
+			it = modifierRegister.erase(it);
+		}
 		else
 			++it;
 	}

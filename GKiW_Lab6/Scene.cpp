@@ -152,8 +152,8 @@ void CScene::Initialize(void) {
 		ScrewDriver* screwDriver = new ScrewDriver(2.0, 0, 1.4, 0, 90, 0, 0.004, "screwdriver", this);
 		Dolar* dolar = new Dolar(4.7, 0.65, -3.1, 0, 20, 0, 0.2, "dolar", this);
 		Phone* phone = new Phone(2.4, 0.65, -3.0, 0, 20, 180, 0.15, "phone", this);
-		Boxd* boxd = new Boxd(0.0, 0.0, 1.0, 0, 20, 0, 0.03, "boxDown", this);
-		Boxu* boxu = new Boxu(0.0, 0.01, 1.0, 0, 20, 0, 0.03, "boxUp", this);
+		Box* boxd = new Box(0.0, 0.0, 1.0, 0, 20, 0, 0.03, "boxDown", this);
+		Box* boxu = new Box(0.0, 0.01, 1.0, 0, 20, 0, 0.03, "boxUp", this);
 		Rings* rings = new Rings(0.0, 0.0001, 1.0, 0, 0, 0, 0.3, "rings", this);
 
 
@@ -257,16 +257,16 @@ void CScene::Initialize(void) {
 
 
 #pragma region Zbieranie przedmiotow
-		queue <Item*>* ItemsToCollect = new queue<Item*>; 
+		queue <Collectable*>* ItemsToCollect = new queue<Collectable*>; 
 		ItemsToCollect->push(bible);
 		ItemsToCollect->push(glass);
-		//ItemsToCollect->push(bible);
+		ItemsToCollect->push(bible);
 		ItemsToCollect->push(dolar);
 		ItemsToCollect->push(phone);
 		ItemsToCollect->push(frame);
 		ItemsToCollect->push(boxu);
 		ItemsToCollect->push(key);
-		ItemsToCollect->push(boxd);
+		ItemsToCollect->push(boxu);
 		ItemsToCollect->push(rings);
 		ItemsToCollect->push(vase2);
 		ItemsToCollect->push(screwDriver);
@@ -489,13 +489,16 @@ void CScene::Render(void) {
 
 bool CScene::CallCollectingManager()
 {
-	Item* returnedItem = collectingManager->tryToCollect(Player);
+	Collectable* returnedItem = collectingManager->tryToCollect(Player);
 	if (returnedItem != nullptr)
 	{
 		//co dalej? 
 		//deleteObject(returnedItem);
-			shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, this, returnedItem));
-			returnedItem->registerModifier(dissapear);
+
+		returnedItem->collect(this);
+
+			//shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, this, returnedItem));
+			//returnedItem->registerModifier(dissapear);
 
 		toFind = collectingManager->getHead();
 	}
@@ -509,6 +512,9 @@ bool CScene::CallCollectingManager()
 
 void CScene::deleteObject(Item * obj)
 {
+	Collectable* it = new Collectable ();
+	Item* it2 = dynamic_cast<Item*>(it); 
+
 	int objectId = findInVector(obj, Objects);
 	Objects->erase(Objects->begin() + objectId);
 	delete obj; 

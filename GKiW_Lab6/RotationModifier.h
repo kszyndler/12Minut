@@ -5,12 +5,14 @@ class RotationModifier :
 	public Modifier
 {
 public:
-	RotationModifier(float seconds, vec3 playerPos);
+	RotationModifier(float seconds, Item* item, float anglex, float angley, float anglez);
 	~RotationModifier();
 	int update();
 
 private:
 	Item* item; 
-	vec3 playerPos;
+	float rx; 
+	float ry; 
+	float rz; 
 };
 

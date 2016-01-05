@@ -24,12 +24,15 @@ float countVectorLength(vec3 a, vec3 b)
 	return sqrt(x*x + y*y + z*z);
 }
 
+
+
 // Konstruktor.
 CScene::CScene(void)
 {
 	DrawCollisions = false;
 	DrawNormals = false;
 	MarkCollision = false;
+	ended = false; 
 }
 
 // Destruktor - sprz¹tamy po sobie.
@@ -138,8 +141,6 @@ void CScene::Initialize(void) {
 		boxu->Initialize();
 		rings->Initialize();
 
-
-
 		Objects->push_back(sofa);
 		Objects->push_back(coffeTable);
 		Objects->push_back(bookShelve);
@@ -218,11 +219,26 @@ void CScene::Initialize(void) {
 		ItemsToCollect->push(rings);
 		ItemsToCollect->push(vase2);
 		ItemsToCollect->push(screwDriver);
+		ItemsToCollect->push(vase2);
 
 
 		collectingManager = new CollectingManager(ItemsToCollect);
 		toFind = collectingManager->getHead();
 		userInterface.initBackground(GLUT_WINDOW_WIDTH / 2, GLUT_WINDOW_HEIGHT*0.9, GLUT_WINDOW_WIDTH, GLUT_WINDOW_HEIGHT*0.1);
+
+		//tekst "Powtalny" 
+		vector<char*> welcomeText = { "Zeszlej nocy, w dziwnych okolicznosciach zaginela",
+			"twoja przyjaciolka Joanna. Przeczuwasz, ",
+			"ze grozi jej niebezpieczenstwo, ale jest za wczesnie, ", 
+			"by rozpoczac oficjalne poszukiwania.", 
+			"Postanawiasz wiec rozpoczac dochodzenie na wlasna reke."
+			"Zaczynasz od przeszukania jej pokoju. "};
+		pushTextToDisplay(welcomeText, 3.0);
+		welcomeText = { "Przypominasz sobie, ze Joanna w ostatnim czasie ",
+			"stala sie wyjatkowo religijna. ", 
+			"To jest jedyna wskazowka, jaka masz."};
+
+		pushTextToDisplay(welcomeText, 3.0);
 
 #pragma endregion
 	
@@ -329,6 +345,17 @@ void CScene::Update(void) {
 // Narysowanie sceny.
 void CScene::Render(void) {
 
+	if (ended)
+	{
+		userInterface.draw(20, 30, GLUT_BITMAP_HELVETICA_18, "Nie mozesz uwierzyc, ze Joanna wplata sie w dzialalnosc sekty");
+		userInterface.draw(20, 35, GLUT_BITMAP_HELVETICA_18, "Natychmiast informujesz policje o miejscu, w ktorym");
+		userInterface.draw(20, 40, GLUT_BITMAP_HELVETICA_18, "prawdopodobnie znajduje sie twoja przyjaciolka.");
+		userInterface.draw(20, 45, GLUT_BITMAP_HELVETICA_18, "W domu przebywala nie tylko Joanna ale tez cztery inne osoby, ");
+		userInterface.draw(20, 50, GLUT_BITMAP_HELVETICA_18, "ktore mialy stac sie ofiarami w zaplanowanym na kolejna noc rytuale. ");
+		userInterface.draw(20, 55, GLUT_BITMAP_HELVETICA_18, "Uratowano je dzieki rozwiazaniu zagadki. ");
+		return; 
+	}
+
 	#pragma region Kamera
 
 		gluLookAt(
@@ -419,13 +446,24 @@ void CScene::Render(void) {
 	#pragma endregion
 
 
+		if (!actionWindow.empty())
+		{
+			int nextAction = actionWindow.front()->update();
+			if (nextAction == 1)
+			{
+				actionWindow.pop();
+			}
+		}
+		else
+		{
+			char* riddle = " ";
+			if (toFind != nullptr)
+				riddle = toFind->Riddle;
 
-		char* riddle = " ";
-		char* action = " ";
-		if(toFind != nullptr)
-			riddle = toFind->Riddle;
-		userInterface.draw(20, 90, GLUT_BITMAP_HELVETICA_18, riddle);
-		userInterface.draw(20, 20, GLUT_BITMAP_HELVETICA_18, action);
+			userInterface.draw(20, 90, GLUT_BITMAP_HELVETICA_18, riddle);
+		}
+
+
 
 }
 
@@ -435,14 +473,15 @@ bool CScene::CallCollectingManager()
 	Collectable* returnedItem = collectingManager->tryToCollect(Player);
 	if (returnedItem != nullptr)
 	{
-		//co dalej? 
-		//deleteObject(returnedItem);
+		if (!returnedItem->action.empty())
+		{
+			for (int i = 0; i < returnedItem->action.size(); i++)
+			{
+				pushTextToDisplay(returnedItem->action[i], 2.0);
+			}
+		}
 
 		returnedItem->collect(this);
-
-			//shared_ptr<SizeModifier> dissapear(new SizeModifier(0.6, this, returnedItem));
-			//returnedItem->registerModifier(dissapear);
-
 		toFind = collectingManager->getHead();
 	}
 
@@ -462,4 +501,15 @@ void CScene::deleteObject(Item * obj)
 	Objects->erase(Objects->begin() + objectId);
 	delete obj; 
 
+}
+
+void CScene::pushTextToDisplay(vector<char*> text, float time)
+{
+	shared_ptr<TimeHandler> welcomeWindow(new TimeHandler(time, text));
+	actionWindow.push(welcomeWindow);
+}
+
+void CScene::renderGoodEnding()
+{
+	ended = true; 
 }

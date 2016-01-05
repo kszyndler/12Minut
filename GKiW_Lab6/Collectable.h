@@ -6,7 +6,7 @@ public:
 	~Collectable();
 	virtual void collect(CScene*) {};
 	char* Riddle;
-	char* action; 
+	vector<vector<char*>>action; 
 protected:
 	int callsNumber;
 };

@@ -1,7 +1,7 @@
 #pragma once
 #include "CollectingManager.h"
 #include "Interface.h"
-#include "TimeModifier.h"
+#include "TimeHandler.h"
 
 //mediator
 // Scena - Jest to podstawowy element organizuj¹cy hierarchiê obiektów w grze.
@@ -37,10 +37,13 @@ public:
 	bool DrawNormals; // Czy maj¹ byæ rysowane wektory normalne (do debugowania, klawisz "N")?
 	vec3 LastCollisionPoint; // Pozycja ostatniej kolizji.
 	bool MarkCollision; // Czy ju¿ zaistnia³a jakakolwiek kolizja warta narysowania?
+	void renderGoodEnding();
 
 private:
 	Collectable* toFind;
 	Interface userInterface;
-	TimeModifier stoperwatch; 
+	queue <shared_ptr<TimeHandler> > actionWindow;
+	void pushTextToDisplay(vector<char*> text, float time);
+	bool ended; 
 };
 

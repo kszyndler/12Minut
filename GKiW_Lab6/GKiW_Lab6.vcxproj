@@ -112,7 +112,7 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="Texture.h" />
-    <ClInclude Include="TimeModifier.h" />
+    <ClInclude Include="TimeHandler.h" />
     <ClInclude Include="Vec3.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>
@@ -141,7 +141,7 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
     </ClCompile>
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="TimeModifier.cpp" />
+    <ClCompile Include="TimeHandler.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>

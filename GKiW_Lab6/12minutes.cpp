@@ -21,8 +21,8 @@ int main(int argc, char* argv[])
 {
 	glutInit(&argc, argv);
 
-	glutInitWindowPosition(100, 100);
-	glutInitWindowSize(640, 360);
+	glutInitWindowPosition(0, 0);
+	glutInitWindowSize(640*2, 360*2);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH | GLUT_MULTISAMPLE);
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -78,6 +78,12 @@ int main(int argc, char* argv[])
 	{
 		glutLeaveMainLoop();
 	}
+	void renderGoodEnd(int someint)
+	{
+		Scene->renderGoodEnding();
+		glutTimerFunc(10000, endGame, 0);
+	}
+
 
 	void OnKeyDown(unsigned char key, int x, int y) {
 		if (key == 27) {
@@ -88,7 +94,7 @@ int main(int argc, char* argv[])
 			bool isDone = Scene->CallCollectingManager();
 			if (isDone)
 			{
-				glutTimerFunc(1000, endGame, 0);
+				glutTimerFunc(12000, renderGoodEnd, 0);
 			}
 
 		}

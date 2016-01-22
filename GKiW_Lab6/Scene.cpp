@@ -58,7 +58,7 @@ void CScene::Initialize(void) {
 
 	#pragma region Zawartosc sceny
 	
-		CollidingItem* sofa = new CollidingItem(3.0f, 0.0f, 1.0f, 0, 0, 0, 0.09, "sofa", this);
+		CollidingItem* sofa = new CollidingItem(3.0f, 0.0f, 1.0f, 0, 5, 0, 0.09, "sofa", this);
 		CollidingItem* coffeTable = new CollidingItem(3.0f, 0.0f, 0.0f, 0, 0, 0, 0.001, "coffeetable", this);
 		CollidingItem* tv = new CollidingItem(3.0, 0.0, -3.0, 0, 0, 0, 0.4, "tv", this);
 		Item* bookShelve = new Item(5.0, 0.8, -3.2, 0, 0, 0, 0.03, "bookshelve", this);
@@ -68,7 +68,7 @@ void CScene::Initialize(void) {
 		CollidingItem* fotel = new CollidingItem(3.8f, 0.0f, 0.0f, 0, 0, 0, 0.025, "chair", this);
 		CollidingItem* fotel2 = new CollidingItem(1.2f, 0.0f, -0.35f, 0, 0, 0, 0.025, "chair2obj", this);
 		CollidingItem* lamp = new CollidingItem(3.3, 0.5, 0.0, 0, 0, 0, 0.003, "ikeaLamp", this);
-		Item* lion = new Item(3.0f, 1.2f, 1.5f, 0, 0, 0, 0.009, "head", this);
+		Item* lion = new Item(3.0f, 1.2f, 1.75f, 0, 0, 0, 0.009, "head", this);
 		CollidingItem* regal = new CollidingItem(6.0, -0.01, 1.0, 0, 0, 0, 0.0011, "reg", this);
 		CollidingItem* vase1 = new CollidingItem(6.0, 0.0, -2.1, 0, 0, 0, 0.015, "vase1", this);
 		Vase* vase2 = new Vase(5.6, 0.0, -1.7, 0, 0, 0, 0.01, "vase1", this);
@@ -80,7 +80,7 @@ void CScene::Initialize(void) {
 		CollidingItem* fridge = new CollidingItem(4.0, 0.0, 0.4, 0, 0, 0, 0.03, "cook", this);
 		Key* key = new Key (6.0, 0.87, 0.99, 90, 0, 0, 0.02, "key", this);
 		MagGlass* glass = new MagGlass(4.9, 1.0, -3.2, 0, 90, 0, 0.01, "magglass", this);
-		ScrewDriver* screwDriver = new ScrewDriver(2.0, 0, 1.4, 0, 90, 0, 0.004, "screwdriver", this);
+		ScrewDriver* screwDriver = new ScrewDriver(2.0, 0, 1.5, 0, 90, 0, 0.004, "screwdriver", this);
 		Dolar* dolar = new Dolar(4.7, 0.65, -3.1, 0, 20, 0, 0.2, "dolar", this);
 		Phone* phone = new Phone(2.4, 0.65, -3.0, 0, 20, 180, 0.15, "phone", this);
 		Box* boxd = new Box(0.0, 0.0, 1.0, 0, 20, 0, 0.03, "boxDown", this);
@@ -148,7 +148,7 @@ void CScene::Initialize(void) {
 
 		const float height = 2.9; 
 		const float xa = -0.4;
-		const float za = 1.55;
+		const float za = 1.75;
 		const float zb = -3.4;
 		const float xc = 7.3;
 

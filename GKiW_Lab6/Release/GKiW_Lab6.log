@@ -1,142 +1,149 @@
 ﻿  stdafx.cpp
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\Vec3.h(102): warning C4305: 'argument': truncation from 'double' to 'const float'
-  Bitmap.cpp
-..\3rd_party\bitmap\Bitmap.cpp(52): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
-..\3rd_party\bitmap\Bitmap.cpp(180): warning C4018: '<': signed/unsigned mismatch
-..\3rd_party\bitmap\Bitmap.cpp(201): warning C4018: '<': signed/unsigned mismatch
-..\3rd_party\bitmap\Bitmap.cpp(235): warning C4018: '<': signed/unsigned mismatch
-..\3rd_party\bitmap\Bitmap.cpp(253): warning C4018: '<': signed/unsigned mismatch
-  Interface.cpp
-Interface.cpp(44): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-Interface.cpp(48): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-  RotationModifier.cpp
-  SizeModifier.cpp
-SizeModifier.cpp(10): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-SizeModifier.cpp(18): warning C4305: '*=': truncation from 'double' to 'float'
-  Collectable.cpp
-  CollectingManager.cpp
-  Colliding.cpp
-Colliding.cpp(13): warning C4018: '<': signed/unsigned mismatch
-  CollidingItem.cpp
-  CollisionDetection.cpp
-CollisionDetection.cpp(20): warning C4018: '<': signed/unsigned mismatch
-  CollisionPolygon.cpp
-  12minutes.cpp
-  Item.cpp
-Item.cpp(44): warning C4018: '<': signed/unsigned mismatch
-  ItemsOnScene.cpp
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(29): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(83): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(119): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(137): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(155): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(173): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(192): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(213): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(260): warning C4305: 'argument': truncation from 'double' to 'float'
-  Modifier.cpp
-Modifier.cpp(7): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  ObjLoader.cpp
-ObjLoader.cpp(128): warning C4018: '<': signed/unsigned mismatch
-ObjLoader.cpp(144): warning C4018: '<': signed/unsigned mismatch
-ObjLoader.cpp(173): warning C4018: '<': signed/unsigned mismatch
-ObjLoader.cpp(192): warning C4018: '<': signed/unsigned mismatch
-ObjLoader.cpp(198): warning C4018: '<': signed/unsigned mismatch
-ObjLoader.cpp(30): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
-ObjLoader.cpp(41): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
-ObjLoader.cpp(51): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
-ObjLoader.cpp(60): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
-ObjLoader.cpp(65): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
-ObjLoader.cpp(70): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
-ObjLoader.cpp(82): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
-ObjLoader.cpp(101): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
-ObjLoader.cpp(106): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
-ObjLoader.cpp(111): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
-ObjLoader.cpp(120): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
-ObjLoader.cpp(125): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
-  Scene.cpp
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(29): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(83): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(119): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(137): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(155): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(173): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(192): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(213): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\ItemsOnScene.h(260): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(9): warning C4018: '<': signed/unsigned mismatch
-Scene.cpp(61): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(62): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(63): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(64): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(65): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(66): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(67): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(68): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(69): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(70): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(71): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(72): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(73): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(74): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(75): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(76): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(77): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(78): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(79): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(80): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(81): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(82): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(83): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(84): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(85): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(86): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(87): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(88): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(149): warning C4305: 'initializing': truncation from 'double' to 'float'
-Scene.cpp(150): warning C4305: 'initializing': truncation from 'double' to 'float'
-Scene.cpp(151): warning C4305: 'initializing': truncation from 'double' to 'float'
-Scene.cpp(152): warning C4305: 'initializing': truncation from 'double' to 'float'
-Scene.cpp(153): warning C4305: 'initializing': truncation from 'double' to 'float'
-Scene.cpp(199): warning C4305: 'argument': truncation from 'double' to 'float'
-Scene.cpp(261): warning C4305: '/=': truncation from 'double' to 'float'
-Scene.cpp(262): warning C4305: '/=': truncation from 'double' to 'float'
-Scene.cpp(263): warning C4305: '/=': truncation from 'double' to 'float'
-Scene.cpp(264): warning C4305: '/=': truncation from 'double' to 'float'
-Scene.cpp(270): warning C4018: '<': signed/unsigned mismatch
-Scene.cpp(312): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-Scene.cpp(312): warning C4305: 'initializing': truncation from 'double' to 'float'
-Scene.cpp(313): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-Scene.cpp(313): warning C4305: 'initializing': truncation from 'double' to 'float'
-Scene.cpp(324): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-Scene.cpp(324): warning C4305: 'initializing': truncation from 'double' to 'float'
-Scene.cpp(335): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-Scene.cpp(335): warning C4305: 'initializing': truncation from 'double' to 'float'
-Scene.cpp(351): warning C4018: '<': signed/unsigned mismatch
-Scene.cpp(385): warning C4018: '<': signed/unsigned mismatch
-  SceneObject.cpp
-  Texture.cpp
-  TimeHandler.cpp
-TimeHandler.cpp(18): warning C4018: '<': signed/unsigned mismatch
-TimeHandler.cpp(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\vec3.h(102): warning C4305: 'argument': truncation from 'double' to 'const float'
   Wall.cpp
-Wall.cpp(52): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-  Generating code
-  486 of 1341 functions (36.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    49 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\wall.cpp(52): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+  TimeHandler.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\timehandler.cpp(18): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\timehandler.cpp(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Texture.cpp
+  SceneObject.cpp
+  Scene.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(29): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(83): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(119): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(137): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(155): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(173): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(192): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(213): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(260): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(9): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(61): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(62): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(63): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(64): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(65): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(66): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(67): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(68): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(69): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(70): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(71): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(72): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(73): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(74): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(75): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(76): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(77): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(78): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(79): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(80): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(81): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(82): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(83): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(84): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(85): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(86): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(87): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(88): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(149): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(150): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(151): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(152): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(153): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(199): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(261): warning C4305: '/=': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(262): warning C4305: '/=': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(263): warning C4305: '/=': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(264): warning C4305: '/=': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(270): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(312): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(312): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(313): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(313): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(324): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(324): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(335): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(335): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(351): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\scene.cpp(385): warning C4018: '<': signed/unsigned mismatch
+  ObjLoader.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(128): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(144): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(173): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(192): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(198): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(30): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(41): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(51): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(60): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(65): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(70): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(82): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(101): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(106): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(111): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(120): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(125): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\xutility(2230): warning C4996: 'std::_Copy_impl': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct. To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xutility(2216): note: see declaration of 'std::_Copy_impl'
+  c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\objloader.cpp(177): note: see reference to function template instantiation '_OutIt std::copy<std::_String_iterator<std::_String_val<std::_Simple_types<char>>>,char*>(_InIt,_InIt,_OutIt)' being compiled
+          with
+          [
+              _OutIt=char *,
+              _InIt=std::_String_iterator<std::_String_val<std::_Simple_types<char>>>
+          ]
+  Modifier.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\modifier.cpp(7): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  ItemsOnScene.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(29): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(83): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(119): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(137): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(155): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(173): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(192): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(213): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\itemsonscene.h(260): warning C4305: 'argument': truncation from 'double' to 'float'
+  Item.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\item.cpp(44): warning C4018: '<': signed/unsigned mismatch
+  12minutes.cpp
+  CollisionPolygon.cpp
+  CollisionDetection.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\collisiondetection.cpp(20): warning C4018: '<': signed/unsigned mismatch
+  CollidingItem.cpp
+  Colliding.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\colliding.cpp(13): warning C4018: '<': signed/unsigned mismatch
+  CollectingManager.cpp
+  Collectable.cpp
+  SizeModifier.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\sizemodifier.cpp(10): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\sizemodifier.cpp(18): warning C4305: '*=': truncation from 'double' to 'float'
+  RotationModifier.cpp
+  Interface.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\interface.cpp(44): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\karolina\documents\studia\grafik\12minut\12minut\gkiw_lab6\interface.cpp(48): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  Bitmap.cpp
+c:\users\karolina\documents\studia\grafik\12minut\12minut\3rd_party\bitmap\bitmap.cpp(52): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\karolina\documents\studia\grafik\12minut\12minut\3rd_party\bitmap\bitmap.cpp(180): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\3rd_party\bitmap\bitmap.cpp(201): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\3rd_party\bitmap\bitmap.cpp(235): warning C4018: '<': signed/unsigned mismatch
+c:\users\karolina\documents\studia\grafik\12minut\12minut\3rd_party\bitmap\bitmap.cpp(253): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+Bitmap.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   GKiW_Lab6.vcxproj -> C:\Users\Karolina\Documents\Studia\Grafik\12minut\12Minut\Release\12minutes.exe
           1 file(s) copied.
+  File not found - *.bmp
+  0 File(s) copied

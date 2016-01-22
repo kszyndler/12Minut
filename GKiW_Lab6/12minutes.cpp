@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
 	void renderGoodEnd(int someint)
 	{
 		Scene->renderGoodEnding();
-		glutTimerFunc(10000, endGame, 0);
+		glutTimerFunc(14000, endGame, 0);
 	}
 
 
@@ -91,35 +91,13 @@ int main(int argc, char* argv[])
 		}
 
 		if (key == 32) {
+			Scene->start();
 			bool isDone = Scene->CallCollectingManager();
 			if (isDone)
 			{
-				glutTimerFunc(12000, renderGoodEnd, 0);
+				glutTimerFunc(15000, renderGoodEnd, 0);
 			}
 
-		}
-
-		if (key == 'm' || key == 'M') {
-			if (captureMouse) {
-				captureMouse = false;
-				glutSetCursor(GLUT_CURSOR_LEFT_ARROW);
-			}
-			else {
-				captureMouse = true;
-				glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH) / 2, glutGet(GLUT_WINDOW_HEIGHT) / 2);
-				glutSetCursor(GLUT_CURSOR_NONE);
-			}
-		}
-		if (key == 'l' || key == 'L') {
-			free3DMovement = !free3DMovement;
-		}
-		if (key == 'k' || key == 'K') {
-			// Rysowanie kolizji.
-			Scene->DrawCollisions = !Scene->DrawCollisions;
-		}
-		if (key == 'n' || key == 'N') {
-			// Rysowanie wektorów normalnych.
-			Scene->DrawNormals = !Scene->DrawNormals;
 		}
 	}
 
@@ -137,8 +115,6 @@ int main(int argc, char* argv[])
 void OnTimer(int id) {
 	glutTimerFunc(17, OnTimer, 0);
 	
-	// Aktualizacjê œwiata przenieœliœmy do obiektu klasy CScene
-	// (lub dziedzicz¹cej po niej, gdy scen bêdzie kilka):
 	Scene->Update();
 }
 
@@ -148,8 +124,6 @@ void OnRender() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	// Rysowanie w³aœciwej sceny przenieœliœmy do obiektu klasy CScene
-	// (lub dziedzicz¹cej po niej, gdy scen bêdzie kilka):
 	Scene->Render();
 
 	glutSwapBuffers();

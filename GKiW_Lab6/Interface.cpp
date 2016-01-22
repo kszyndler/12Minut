@@ -17,7 +17,6 @@ void Interface::draw(float x, float y, void * font, char * string)
 	setOrthographicProjection();
 	glPushMatrix();
 	glLoadIdentity();
-	//glCallList(backgroundListId);
 	renderBitmapString(x, y, font, string);
 	glPopMatrix();
 	restorePerspectiveProjection();
@@ -35,10 +34,8 @@ void Interface::setOrthographicProjection()
 void Interface:: restorePerspectiveProjection() {
 
 	glMatrixMode(GL_PROJECTION);
-	// restore previous projection matrix
 	glPopMatrix();
 
-	// get back to modelview mode
 	glMatrixMode(GL_MODELVIEW);
 }
 void Interface:: renderSpacedBitmapString(float x, float y, int spacing, void *font, char *string)

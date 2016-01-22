@@ -73,6 +73,7 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)3rd_party\freeglut-2.8.0\include;$(SolutionDir)3rd_party\bitmap</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -107,10 +108,8 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
     <ClInclude Include="12minutes.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneObject.h" />
-    <ClInclude Include="Skydome.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Terrain.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeHandler.h" />
     <ClInclude Include="Vec3.h" />
@@ -134,26 +133,13 @@ xcopy "$(ProjectDir)Resources\*.bmp" "$(TargetDir)Resources" /I /Y</Command>
     <ClCompile Include="ObjLoader.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneObject.cpp" />
-    <ClCompile Include="Skydome.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeHandler.cpp" />
     <ClCompile Include="Wall.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Box.bmp">
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="Resources\Grass.bmp">
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="Resources\Skydome.bmp">
-      <DeploymentContent>true</DeploymentContent>
-    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

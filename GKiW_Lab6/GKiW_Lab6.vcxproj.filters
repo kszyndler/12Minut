@@ -9,15 +9,8 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Header Files\World">
       <UniqueIdentifier>{ea065fd1-fb7a-41b3-8ac3-7e56437452dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\World">
-      <UniqueIdentifier>{82ba3a84-df43-430f-a277-b2a27dca3484}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Utilities">
       <UniqueIdentifier>{d0c103d0-8fdd-4828-b596-48fb8ed44e60}</UniqueIdentifier>
@@ -30,6 +23,9 @@
     </Filter>
     <Filter Include="Source Files\Utilities\CollisionDetection">
       <UniqueIdentifier>{f0eef265-539f-422a-826d-3ea7c23d1dc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities\World">
+      <UniqueIdentifier>{82ba3a84-df43-430f-a277-b2a27dca3484}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,14 +44,8 @@
     <ClInclude Include="Texture.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="Skydome.h">
-      <Filter>Header Files\World</Filter>
-    </ClInclude>
     <ClInclude Include="Vec3.h">
       <Filter>Header Files\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Terrain.h">
-      <Filter>Header Files\World</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Header Files\World</Filter>
@@ -126,25 +116,16 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SceneObject.cpp">
-      <Filter>Source Files\World</Filter>
-    </ClCompile>
-    <ClCompile Include="..\3rd_party\bitmap\Bitmap.cpp">
-      <Filter>Source Files\Utilities</Filter>
+      <Filter>Source Files\Utilities\World</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="Skydome.cpp">
-      <Filter>Source Files\World</Filter>
-    </ClCompile>
-    <ClCompile Include="Terrain.cpp">
-      <Filter>Source Files\World</Filter>
-    </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>Source Files\World</Filter>
+      <Filter>Source Files\Utilities\World</Filter>
     </ClCompile>
     <ClCompile Include="Wall.cpp">
-      <Filter>Source Files\World</Filter>
+      <Filter>Source Files\Utilities\World</Filter>
     </ClCompile>
     <ClCompile Include="CollisionDetection.cpp">
       <Filter>Source Files\Utilities\CollisionDetection</Filter>
@@ -159,19 +140,19 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
-      <Filter>Source Files\World</Filter>
+      <Filter>Source Files\Utilities\World</Filter>
     </ClCompile>
     <ClCompile Include="ItemsOnScene.cpp">
-      <Filter>Source Files\World</Filter>
+      <Filter>Source Files\Utilities\World</Filter>
     </ClCompile>
     <ClCompile Include="CollidingItem.cpp">
-      <Filter>Source Files\World</Filter>
+      <Filter>Source Files\Utilities\World</Filter>
     </ClCompile>
     <ClCompile Include="Collectable.cpp">
-      <Filter>Source Files\World</Filter>
+      <Filter>Source Files\Utilities\World</Filter>
     </ClCompile>
     <ClCompile Include="Colliding.cpp">
-      <Filter>Source Files\World</Filter>
+      <Filter>Source Files\Utilities\World</Filter>
     </ClCompile>
     <ClCompile Include="CollectingManager.cpp">
       <Filter>Source Files</Filter>
@@ -191,16 +172,8 @@
     <ClCompile Include="TimeHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Grass.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\Skydome.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\Box.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
+    <ClCompile Include="..\3rd_party\bitmap\Bitmap.cpp">
+      <Filter>Source Files\Utilities\World</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

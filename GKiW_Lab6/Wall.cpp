@@ -1,14 +1,9 @@
 #include "StdAfx.h"
 
-// Zmienne statyczne pozwalaj¹ce na jednokrotne za³adowanie tekstury.
-//bool CWall::_isLoaded = false;
-//CTexture * CWall::_wallTexture = NULL;
 
-// Konstruktor - wywo³ujemy konstruktor CSceneObject oraz ustawiamy wartoœci pocz¹tkowe
-// na podstawie zadanych wspó³rzêdnych.
 CWall::CWall(vec3 a, vec3 b, vec3 c, vec3 d, string texture) : CSceneObject(), Colliding(1)
  {
-	_displayListId = -1; // Na razie displaylisty jeszcze nie ma, utworzymy j¹ podczas inicjalizacji.
+	_displayListId = -1; 
 	v.resize(4);
 	v[0] = a;
 	v[1] = b;
@@ -17,8 +12,8 @@ CWall::CWall(vec3 a, vec3 b, vec3 c, vec3 d, string texture) : CSceneObject(), C
 
 	collide(v, 0, this);
 
-	vec3::Cross((c-b), (a-b), n); // Obliczenie wektora normalnego œciany...
-	n.Normalize(); // ...i jego normalizacja.
+	vec3::Cross((c-b), (a-b), n); //wektor normalny sciany
+	n.Normalize(); 
 	textureName = texture; 
 }
 
@@ -27,12 +22,10 @@ CWall::~CWall(void)
 {
 }
 
-// Inicjalizacja segmentu œciany.
 void CWall::Initialize(void)
 {
 	_displayListId = glGenLists(1);
 	
-	// Utworzenie displaylisty na podstawie wspó³rzêdnych.
 	glNewList(_displayListId, GL_COMPILE);
 		glBegin(GL_QUADS);
 		
@@ -54,12 +47,6 @@ void CWall::Initialize(void)
 		glEnd();
 	glEndList();
 
-	// Tekstura jest dla wszystkich instancji CWall taka sama - nie ma sensu ³adowaæ jej wielokrotnie do pamiêci.
-	//if (_isLoaded) {
-	//	return;
-	//}
-	//_isLoaded = true;
-
 	string texPath("Resources\\tex\\" + textureName);
 	char *cstr = new char[texPath.length() + 1];
 	strcpy(cstr, texPath.c_str());
@@ -69,13 +56,10 @@ void CWall::Initialize(void)
 
 }
 
-// Aktualizacja stanu œciany.
 void CWall::Update(void)
 {
-	// Œciana stoi i ma siê dobrze niezale¿nie od okolicznoœci.
 }
 
-// Rysowanie segmentu œciany.
 void CWall::Render(void)
 {
 	glPushMatrix();
@@ -89,23 +73,10 @@ void CWall::Render(void)
 	glBindTexture(GL_TEXTURE_2D, _wallTexture->GetId(true));
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
-	// Wywo³anie displaylisty.
 	glCallList(_displayListId);
 
 	glDisable(GL_TEXTURE_2D);
 
-	// Narysuj wektor normalny dla tego segmentu œciany, jeœli u¿ytkownik sobie tego za¿yczy³ (klawisz "N").
-	if (Scene->DrawNormals) {
-		glDisable(GL_LIGHTING);
-		vec3 c = (v[0] + v[1] + v[2] + v[3]) * .25f;
-		glColor3f(1.0f, 1.0f, 0.0f);
-		glLineWidth(3.0f);
-		glBegin(GL_LINES);
-			glVertex3f(c.x, c.y, c.z);
-			glVertex3f(c.x + n.x * .5f, c.y + n.y * .5f, c.z + n.z * .5f);
-		glEnd();
-		glEnable(GL_LIGHTING);
-	}
 
 	glPopMatrix();
 }

@@ -24,35 +24,20 @@ float countVectorLength(vec3 a, vec3 b)
 	return sqrt(x*x + y*y + z*z);
 }
 
-
-
-// Konstruktor.
 CScene::CScene(void)
 {
-	DrawCollisions = false;
-	DrawNormals = false;
-	MarkCollision = false;
 	ended = false; 
+	started = false; 
 }
 
-// Destruktor - sprz¹tamy po sobie.
 CScene::~CScene(void)
 {
-	if (Skydome != NULL) {
-		delete Skydome;
-	}
-	//if (Terrain != NULL) {
-	//	delete Terrain;
-	//}
 	delete collectingManager;
 }
 
-// Inicjalizacja sceny.
 void CScene::Initialize(void) {
 	
 	#pragma region Ustawienia
-
-		// Ustawienie wszelkiego rodzaju rzeczy, które s¹ charakterystyczne dla tej konkretnej sceny.
 
 		glEnable(GL_LIGHT0);
 		glEnable(GL_LIGHT1);
@@ -60,12 +45,12 @@ void CScene::Initialize(void) {
 
 
 		Player.pos.x = 0.0f;
-		Player.pos.y = 1.5f;
+		Player.pos.y = 0.9f;
 		Player.pos.z = -0.0f;
 
-		Player.dir.x = 0.0f;
+		Player.dir.x = 1.0f;
 		Player.dir.y = 0.0f;
-		Player.dir.z = -1.0f;
+		Player.dir.z = 1.0f;
 
 		Player.speed = .7f;
 
@@ -73,11 +58,6 @@ void CScene::Initialize(void) {
 
 	#pragma region Zawartosc sceny
 	
-
-		// ...oraz teren.
-		//Terrain = new CTerrain();
-		//Terrain->Initialize();
-
 		CollidingItem* sofa = new CollidingItem(3.0f, 0.0f, 1.0f, 0, 0, 0, 0.09, "sofa", this);
 		CollidingItem* coffeTable = new CollidingItem(3.0f, 0.0f, 0.0f, 0, 0, 0, 0.001, "coffeetable", this);
 		CollidingItem* tv = new CollidingItem(3.0, 0.0, -3.0, 0, 0, 0, 0.4, "tv", this);
@@ -85,8 +65,8 @@ void CScene::Initialize(void) {
 		CollidingItem* shelves = new CollidingItem(5.0, 0.0, -3.0, 0, 0, 0, 0.009, "shelves", this);
 		CollidingItem* window = new CollidingItem(7.0, 0.5, -0.4, 0, 0, 0, 0.03, "window", this);
 		CollidingItem* window2 = new CollidingItem(7.0, 0.5, -1.2, 0, 0, 0, 0.03, "window", this);
-		CollidingItem* fotel = new CollidingItem(3.8f, 0.2f, 0.0f, 0, 0, 0, 0.025, "chair", this);
-		CollidingItem* fotel2 = new CollidingItem(1.2f, 0.2f, -0.35f, 0, 0, 0, 0.025, "chair2obj", this);
+		CollidingItem* fotel = new CollidingItem(3.8f, 0.0f, 0.0f, 0, 0, 0, 0.025, "chair", this);
+		CollidingItem* fotel2 = new CollidingItem(1.2f, 0.0f, -0.35f, 0, 0, 0, 0.025, "chair2obj", this);
 		CollidingItem* lamp = new CollidingItem(3.3, 0.5, 0.0, 0, 0, 0, 0.003, "ikeaLamp", this);
 		Item* lion = new Item(3.0f, 1.2f, 1.5f, 0, 0, 0, 0.009, "head", this);
 		CollidingItem* regal = new CollidingItem(6.0, -0.01, 1.0, 0, 0, 0, 0.0011, "reg", this);
@@ -107,9 +87,6 @@ void CScene::Initialize(void) {
 		Box* boxu = new Box(0.0, 0.01, 1.0, 0, 20, 0, 0.03, "boxUp", this);
 		Rings* rings = new Rings(0.0, 0.0001, 1.0, 0, 0, 0, 0.3, "rings", this);
 
-
-		// Dodanie wszystkich obiektów sceny do wektora, po którym póŸniej bêdziemy iterowaæ chc¹c je rysowaæ.
-		// Dlatego w³aœnie wygodnie jest, gdy wszystkie obiekty sceny dziedzicz¹ po jednej, wspólnej klasie bazowej (CSceneObject).
 
 		Objects = new vector<CSceneObject *>();
 		sofa->Initialize();
@@ -132,7 +109,6 @@ void CScene::Initialize(void) {
 		frame->Initialize();
 		doors->Initialize();
 		key->Initialize();
-		//fridge->Initialize();
 		glass->Initialize();
 		screwDriver->Initialize();
 		dolar->Initialize();
@@ -159,7 +135,6 @@ void CScene::Initialize(void) {
 		Objects->push_back(bible);
 		Objects->push_back(books);
 		Objects->push_back(frame);
-		//Objects->push_back(fridge);
 		Objects->push_back(doors);
 		Objects->push_back(key);
 		Objects->push_back(glass);
@@ -171,7 +146,6 @@ void CScene::Initialize(void) {
 		Objects->push_back(rings);
 
 
-		// Definicje po³o¿enia naszych œcian. Ka¿da kolejna czwórka wektorów to jeden quad.
 		const float height = 2.9; 
 		const float xa = -0.4;
 		const float za = 1.55;
@@ -188,15 +162,13 @@ void CScene::Initialize(void) {
 			
 		};
 
-		// Tyle mamy œcian.
 		int NumberOfWalls = 5;
 
-		// Zamieniamy powy¿sz¹ tablicê na obiekty typu CWall, które dodamy do listy obiektów na scenie.
 		for (int i = 0; i < NumberOfWalls; ++i) {
 			CWall *w = new CWall(walls[i][0], walls[i][1], walls[i][2], walls[i][3], "box.bmp");
-			w->Name = "Wall" + to_string(i); // Nadanie nazwy, aby np. mo¿na by³o póŸniej ³atwo dowiedzieæ siê z czym mamy kolizjê.
+			w->Name = "Wall" + to_string(i); 
 			w->Initialize();
-			Objects->push_back(w); // Dodanie do wektora rysowanych/przetwarzanych obiektów.
+			Objects->push_back(w); 
 		}
 		CWall *floor = new CWall(vec3(xa, 0.0, za), vec3(xc, 0.0, za), vec3(xc, 0.0, zb), vec3(xa, 0.0, zb), "Grass.bmp");
 		floor->Initialize();
@@ -226,25 +198,13 @@ void CScene::Initialize(void) {
 		toFind = collectingManager->getHead();
 		userInterface.initBackground(GLUT_WINDOW_WIDTH / 2, GLUT_WINDOW_HEIGHT*0.9, GLUT_WINDOW_WIDTH, GLUT_WINDOW_HEIGHT*0.1);
 
-		//tekst "Powtalny" 
-		vector<char*> welcomeText = { "Zeszlej nocy, w dziwnych okolicznosciach zaginela",
-			"twoja przyjaciolka Joanna. Przeczuwasz, ",
-			"ze grozi jej niebezpieczenstwo, ale jest za wczesnie, ", 
-			"by rozpoczac oficjalne poszukiwania.", 
-			"Postanawiasz wiec rozpoczac dochodzenie na wlasna reke."
-			"Zaczynasz od przeszukania jej pokoju. "};
-		pushTextToDisplay(welcomeText, 3.0);
-		welcomeText = { "Przypominasz sobie, ze Joanna w ostatnim czasie ",
-			"stala sie wyjatkowo religijna. ", 
-			"To jest jedyna wskazowka, jaka masz."};
+		userInterface.draw(GLUT_WINDOW_WIDTH / 2 - 10, GLUT_WINDOW_HEIGHT / 2, GLUT_BITMAP_HELVETICA_18, "Wybierz spacje aby zaczac");
 
-		pushTextToDisplay(welcomeText, 3.0);
 
 #pragma endregion
 	
 }
 
-// Aktualizacja œwiata gry.
 void CScene::Update(void) {
 
 	#pragma region Ruch kamery
@@ -263,7 +223,7 @@ void CScene::Update(void) {
 		}
 		if (keystate['a']) {
 			Player.velS = -Player.speed;
-		}
+		}	
 		if (keystate['d']) {
 			Player.velS = Player.speed;
 		}
@@ -272,12 +232,6 @@ void CScene::Update(void) {
 		}
 		if (keystate['e']) {
 			Player.velRY = Player.speed;
-		}
-		if (keystate['f']) {
-			Player.velRX = -Player.speed;
-		}
-		if (keystate['c']) {
-			Player.velRX = Player.speed;
 		}
 
 
@@ -297,43 +251,22 @@ void CScene::Update(void) {
 		vec3 nextPlayerPos = Player.pos;
 
 		nextPlayerPos.x += Player.dir.x * Player.velM * .1f;
-		if (free3DMovement) {
-			nextPlayerPos.y += Player.dir.y * Player.velM * .1f;
-		}
-		else {
-			// Niby-grawitacja
-			nextPlayerPos.y -= .1f;
-		}
+
 		nextPlayerPos.z += Player.dir.z * Player.velM * .1f;
 
 		nextPlayerPos.x += per.x * Player.velS * .1f;
-		if (free3DMovement) {
-			nextPlayerPos.y += Player.dir.y * Player.velM * .1f;
-		}
 		nextPlayerPos.z += per.z * Player.velS * .1f;
 		
-		// Uniemo¿liwiamy zejœcie gracza poni¿ej poziomu terenu
-		nextPlayerPos.y = __max(0.9f, nextPlayerPos.y);
-
-		// Zmieniamy pozycjê gracza o wyliczony wczeœniej wektor przemieszczenia, uwzglêdniaj¹c przy tym kolizje ze œwiatem
-		// "Objects" powinno byæ wektorem tylko tych obiektów, z którymi chcemy sprawdziæ kolizjê. Dobrze by³oby
-		// wprowadziæ wczeœniejsz¹ fazê detekcji kolizji w oparciu np. o AABB i zawêziæ liczbê elementów Objects.
 		Player.pos = CCollisionDetection::GetPositionAfterWorldCollisions(Player.pos, nextPlayerPos, Player, Objects);
-		//objects to wszyskie obiekty, z ktorymi mozna kolidowac 
 		Player.velRX /= 1.2;
 		Player.velRY /= 1.2;
 		Player.velM /= 1.2;
 		Player.velS /= 1.2;
 
 	#pragma endregion
-		if (countVectorLength(Player.pos, (*Objects)[19]->Position) < 3.0)
-		{
-			//zawolaj rotate modifier
-		}
 
 	#pragma region Aktualizacja obiektow sceny
 
-		// Ró¿ne obiekty mog¹ potrzebowaæ aktualizacji - np. poruszaj¹cy siê wrogowie.
 		for (int i = 0; i < Objects->size(); ++i) {
 			Objects->at(i)->Update();
 		}
@@ -342,7 +275,6 @@ void CScene::Update(void) {
 
 }
 
-// Narysowanie sceny.
 void CScene::Render(void) {
 
 	if (ended)
@@ -353,6 +285,12 @@ void CScene::Render(void) {
 		userInterface.draw(20, 45, GLUT_BITMAP_HELVETICA_18, "W domu przebywala nie tylko Joanna ale tez cztery inne osoby, ");
 		userInterface.draw(20, 50, GLUT_BITMAP_HELVETICA_18, "ktore mialy stac sie ofiarami w zaplanowanym na kolejna noc rytuale. ");
 		userInterface.draw(20, 55, GLUT_BITMAP_HELVETICA_18, "Uratowano je dzieki rozwiazaniu zagadki. ");
+		return; 
+	}
+
+	if (!started)
+	{
+		userInterface.draw(GLUT_WINDOW_WIDTH / 2 - 10, GLUT_WINDOW_HEIGHT / 2, GLUT_BITMAP_HELVETICA_18, "Wybierz spacje aby zaczac");
 		return; 
 	}
 
@@ -410,39 +348,11 @@ void CScene::Render(void) {
 
 	#pragma region Obiekty
 
-		// Narysowanie wszystkich obiektów sceny (w tym przypadku - tylko œcian, ale do Objects mo¿na dodaæ te¿ wszystkie inne obiekty).
 		for (int i = 0; i < Objects->size(); ++i) {
 			Objects->at(i)->Render();
 		}
 
 
-	#pragma endregion
-
-
-	#pragma region Pomocnicze rysowanie kolizji
-		// Narysowanie elipsoidy gracza oraz znalezionego punktu kolizji jeœli u¿ytkownik sobie tego ¿yczy (klawisz "K").
-		if (DrawCollisions) {
-			glDisable(GL_LIGHTING);
-			glDisable(GL_TEXTURE_2D);
-			glLineWidth(1.0f);
-			glColor3f(0.0f, 1.0f, 0.0f);
-			glPushMatrix();
-				glTranslatef(Player.pos.x, Player.pos.y, Player.pos.z);
-				glScalef(Player.collisionEllipsoid->r.x, Player.collisionEllipsoid->r.y, Player.collisionEllipsoid->r.z);
-				glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
-				glutWireSphere(1.0f, 64, 64);
-			glPopMatrix();
-			if (MarkCollision) {
-				glColor3f(1.0f, 0.0f, 1.0f);
-				glPointSize(16.0f);
-				glDisable(GL_DEPTH_TEST);
-				glBegin(GL_POINTS);
-					glVertex3f(LastCollisionPoint.x, LastCollisionPoint.y, LastCollisionPoint.z);
-				glEnd();
-				glEnable(GL_DEPTH_TEST);
-			}
-			glEnable(GL_LIGHTING);
-		}
 	#pragma endregion
 
 
@@ -462,9 +372,6 @@ void CScene::Render(void) {
 
 			userInterface.draw(20, 90, GLUT_BITMAP_HELVETICA_18, riddle);
 		}
-
-
-
 }
 
 
@@ -477,7 +384,7 @@ bool CScene::CallCollectingManager()
 		{
 			for (int i = 0; i < returnedItem->action.size(); i++)
 			{
-				pushTextToDisplay(returnedItem->action[i], 2.0);
+				pushTextToDisplay(returnedItem->action[i], 4);
 			}
 		}
 
@@ -513,3 +420,24 @@ void CScene::renderGoodEnding()
 {
 	ended = true; 
 }
+
+void CScene::start()
+{
+	if (started == false)
+	{
+		started = true; 
+		vector<char*> welcomeText = { "Zeszlej nocy, w dziwnych okolicznosciach zaginela",
+			"twoja przyjaciolka Joanna. Przeczuwasz, ",
+			"ze grozi jej niebezpieczenstwo, ale jest za wczesnie, ", 
+			"by rozpoczac oficjalne poszukiwania.", 
+			"Postanawiasz wiec rozpoczac dochodzenie na wlasna reke."
+			"Zaczynasz od przeszukania jej pokoju. "};
+		pushTextToDisplay(welcomeText, 3.0);
+		welcomeText = { "Przypominasz sobie, ze Joanna w ostatnim czasie ",
+			"stala sie wyjatkowo religijna. ", 
+			"To jest jedyna wskazowka, jaka masz."};
+
+		pushTextToDisplay(welcomeText, 4.0);
+	}
+}
+

@@ -3,41 +3,28 @@
 #include "Interface.h"
 #include "TimeHandler.h"
 
-//mediator
-// Scena - Jest to podstawowy element organizuj¹cy hierarchiê obiektów w grze.
-// Z za³o¿enia, w danym momencie powinna istnieæ tylko jedna scena.
-// W sytuacji gdy scen mo¿e byæ wiêcej, dobrze jest utworzyæ klasy dziedzicz¹ce po tej.
-
 int findInVector(Item* value, vector<CSceneObject*>* vector);
 
 
 class CScene
 {
 public:
-	
-	CSkydome * Skydome; // Skydome - niebo.
-	//CTerrain * Terrain; // Teren - czyli w naszym przyk³adzie trawiasty quad.
 	CPlayer Player; // Stan gracza.
 	CollectingManager* collectingManager;
 
-	// Wszystkie obiekty na scenie, wektor na podstawie którego bêdzie mo¿na
-	// po nich ³atwo iterowaæ, np. w celu ich narysowania.
 	vector<CSceneObject *> * Objects;
 
-	CScene(void); // Konstruktor.
-	~CScene(void); // Destruktor.
-	void Initialize(void); // Inicjalizacja (wywo³ywana raz).
-	void Update(void); // Aktualizacja œwiata.
-	void Render(void); // Rysowanie ca³ej sceny.
+	CScene(void); 
+	~CScene(void); 
+	void Initialize(void); 
+	void Update(void); 
+	void Render(void); 
 	void deleteObject(Item* object);
 
 	bool CallCollectingManager();
 	
-	bool DrawCollisions; // Czy maj¹ byæ rysowane kolizje (do debugowania, klawisz "K")?
-	bool DrawNormals; // Czy maj¹ byæ rysowane wektory normalne (do debugowania, klawisz "N")?
-	vec3 LastCollisionPoint; // Pozycja ostatniej kolizji.
-	bool MarkCollision; // Czy ju¿ zaistnia³a jakakolwiek kolizja warta narysowania?
 	void renderGoodEnding();
+	void start();
 
 private:
 	Collectable* toFind;
@@ -45,5 +32,6 @@ private:
 	queue <shared_ptr<TimeHandler> > actionWindow;
 	void pushTextToDisplay(vector<char*> text, float time);
 	bool ended; 
+	bool started; 
 };
 

@@ -43,16 +43,11 @@ vec3 CCollisionDetection::GetPositionAfterWorldCollisions(vec3 pos0, vec3 pos1, 
 		// bli¿sza kolizja.
 		
 		collidingObj->checkCollisions(pos0, pos1, player.collisionEllipsoid, collision);
-		//collidingObj->collisionPolygon->CheckCollision(pos0, pos1, player.collisionEllipsoid, collision);
 	}
 
 	// Jeœli uda³o siê wykryæ jak¹kolwiek kolizjê (wtedy collision zawiera informacje o tej wystêpuj¹cej najbli¿ej)...
 	if (collision.hasCollided) {
 		
-		// Ustawienie informacji o punkcie kolizji na potrzeby ewentualnego narysowania (klawisz "K").
-		Scene->LastCollisionPoint = collision.planeIntersectionPosition;
-		Scene->MarkCollision = true;
-
 		// ¯¹danie wyliczenia odpowiedzi (reakcji) na kolizjê. Uaktualniona pozycja bêdzie t¹, do której
 		// gracz powinien siê przemieœciæ po zaistnieniu tej kolizji.
 		pos1 = CalculateReaction(pos0, pos1, collision);

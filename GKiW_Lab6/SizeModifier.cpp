@@ -15,7 +15,6 @@ SizeModifier::~SizeModifier(){}
 
 int SizeModifier::update()
 {
-	//item->scaleFactor *= 0.985; 
 	item->scaleFactor *= 0.997;
 	item->Position = item->Position + distance; 
 
